@@ -1,0 +1,51 @@
+<!-- Bottombar -->
+<section class="bottombar container-fluid text-bg-light">
+  <div class="container py-3">
+    <div class="owl-carousel owl-theme" id="header-bottombar">
+      <div class="item">
+        <div class="bottombar-block hstack gap-2 justify-content-center">
+          <i class="fa-solid fa-medal fs-5"></i>
+          <p class="m-0">Đảm bảo chất lượng</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="bottombar-block hstack gap-2 justify-content-center">
+          <i class="fa-solid fa-truck fs-5"></i>
+          <p class="m-0">Miễn phí vận chuyển</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="bottombar-block hstack gap-2 justify-content-center">
+          <i class="fa-solid fa-circle-check fs-5"></i>
+          <p class="m-0">Kiểm tra nhận hàng</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    // Header Bottombar
+    $("#header-bottombar").owlCarousel({
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 2000,
+      autoplayHoverPause: true,
+      loop: true,
+      margin: 24,
+      nav: false,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        576: {
+          items: 2,
+        },
+        768: {
+          items: 3,
+        },
+      },
+    });
+  });
+</script>

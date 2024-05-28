@@ -1,0 +1,273 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!/home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Tài khoản của bạn
+      </li>
+    </ol>
+  </nav>
+</section>
+<!-- Alert -->
+<div class="position-relative w-100">
+  <div
+    class="alert alert-success fade show wow backInRight position-absolute top-0 end-0 mx-3"
+    role="alert"
+    ng-show="messageSuccess != ''"
+  >
+    <strong>{{messageSuccess}}</strong>
+  </div>
+  <div
+    class="alert alert-danger fade show wow backInRight position-absolute top-0 end-0 mx-3"
+    role="alert"
+    ng-show="messageFail != ''"
+  >
+    <strong>{{messageFail}}</strong>
+  </div>
+</div>
+<!-- Account -->
+<section class="container-xxl mb-3">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="row product-filter position-sticky">
+        <div class="col-12">
+          <div
+            class="accordion mb-3 wow lightSpeedInLeft"
+            id="accordionAccount"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseAccount"
+                  aria-expanded="true"
+                  aria-controls="collapseAccount"
+                >
+                  {{title}}
+                </button>
+              </h2>
+              <div
+                id="collapseAccount"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionAccount"
+              >
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <a
+                        href="#!/profile/info"
+                        class="text-decoration-none text-black"
+                        >Thông tin cá nhân</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="#!/profile/orders"
+                        class="text-decoration-none text-black"
+                        >Đơn hàng của bạn</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="#!/profile/changePassword"
+                        class="text-decoration-none text-black"
+                        >Đổi mật khẩu</a
+                      >
+                    </li>
+                    <li class="list-group-item">
+                      <a
+                        href="#!/profile/logout"
+                        class="text-decoration-none text-black"
+                        ng-click="logout()"
+                        >Đăng xuất</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 profile">
+      <div class="bg-body p-4 rounded">
+        <div ng-show="check == 'info'">
+          <p><strong>Ảnh của bạn:</strong></p>
+          <div
+            class="profile-img ratio ratio-1x1 rounded-circle overflow-hidden mb-3"
+          >
+            <img
+              src="{{user.image ? user.image : '/images/users/user.jpg'}}"
+              alt="avatar"
+              class="img-fluid object-fit-cover d-block"
+            />
+          </div>
+          <p><strong>Thay đổi ảnh của bạn:</strong></p>
+          <input
+            type="file"
+            id="file"
+            name="image"
+            class="form-control mb-3"
+            onchange="angular.element(this).scope().uploadImage(this)"
+            required
+          />
+          <form name="registerUserForm" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                <label for="lastname" class="form-label"
+                  ><strong>Họ:</strong></label
+                >
+                <input
+                  type="text"
+                  name="lastname"
+                  class="form-control fst-italic"
+                  ng-model="user.lastname"
+                  required
+                />
+                <div class="invalid-feedback">Vui lòng nhập họ của bạn</div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="firstname" class="form-label"
+                  ><strong>Tên:</strong></label
+                >
+                <input
+                  type="text"
+                  name="firstname"
+                  class="form-control fst-italic"
+                  ng-model="user.firstname"
+                  required
+                />
+                <div class="invalid-feedback">Vui lòng nhập tên của bạn</div>
+              </div>
+            </div>
+            <strong class="me-3">Giới tính:</strong>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineChooseGender"
+                id="male"
+                value="male"
+                ng-model="user.gender"
+                required
+              />
+              <label class="form-check-label" for="male">Nam</label>
+            </div>
+            <div class="form-check form-check-inline mt-3">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineChooseGender"
+                id="famale"
+                value="famale"
+                ng-model="user.gender"
+                required
+              />
+              <label class="form-check-label" for="famale">Nữ</label>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="date"
+                class="form-control mt-3 fst-italic"
+                placeholder="Ngày sinh"
+                ng-model="user.birthday"
+                pattern="^(\d{4})-(\d{2})-(\d{2})$"
+                required
+              />
+              <div class="invalid-feedback">
+                Ngày sinh không hợp lệ, vui lòng nhập theo định dạng yyyy-mm-dd
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                class="form-control mt-3 fst-italic"
+                placeholder="Email"
+                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                ng-model="user.email"
+                ng-disabled="true"
+                required
+              />
+              <small
+                ><i>* Email là dữ liệu bắt buộc, không thể thay đổi</i></small
+              >
+              <div
+                class="invalid-feedback"
+                ng-show="registerUserForm.email.$error.pattern || registerUserForm.email.$error.required"
+              >
+                Vui lòng nhập email hợp lệ
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="phone"
+                class="form-control mt-3 fst-italic"
+                placeholder="Số điện thoại"
+                pattern="(84|0[3-9])+([0-9]{8})\b"
+                ng-model="user.phone"
+                required
+              />
+              <div
+                class="invalid-feedback"
+                ng-show="registerUserForm.phone.$error.pattern || registerUserForm.phone.$error.required"
+              >
+                Vui lòng nhập số điện thoại hợp lệ
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100 rounded-pill mt-3"
+              ng-click="updateUser()"
+            >
+              Cập nhật thông tin
+            </button>
+          </form>
+        </div>
+        <div ng-show="check == 'orders'" class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>STT</th>
+              <th>Mã đơn hàng</th>
+              <th>Ngày đặt hàng</th>
+              <th>Trạng thái</th>
+              <th>Tổng tiền</th>
+              <th>Thao tác</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (() => {
+    "use strict";
+
+    const forms = document.querySelectorAll(".needs-validation");
+
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>

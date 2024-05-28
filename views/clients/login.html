@@ -1,0 +1,62 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!/home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
+    </ol>
+  </nav>
+</section>
+<!-- Alert -->
+<div class="position-relative w-100">
+  <div
+    class="alert alert-success fade show wow backInRight position-absolute top-0 end-0 mx-3"
+    role="alert"
+    ng-show="countdown > 0"
+  >
+    <strong>Đăng nhập thành công</strong> Chuyển hướng sau {{countdown}}s
+  </div>
+  <div
+    class="alert alert-danger fade show wow backInRight position-absolute top-0 end-0 mx-3"
+    role="alert"
+    ng-show="message != ''"
+  >
+    <strong>{{message}}</strong>
+  </div>
+</div>
+<!-- Login -->
+<section class="login container rounded bg-body mb-5 p-4 p-sm-5">
+  <form name="loginUserForm" novalidate>
+    <h2 class="fw-bold text-center py-3">Đăng nhập</h2>
+    <input
+      type="text"
+      name="account"
+      class="form-control mb-3 fst-italic"
+      placeholder="Nhập Email hoặc SĐT của bạn"
+      ng-model="user.account"
+    />
+    <input
+      type="password"
+      name="password"
+      class="form-control mb-3 fst-italic"
+      placeholder="Nhập mật khẩu"
+      ng-model="user.password"
+    />
+    <button
+      class="btn btn-primary w-100 rounded-pill mb-3"
+      ng-click="loginUser()"
+    >
+      Đăng nhập
+    </button>
+  </form>
+  <p class="mb-1">
+    Bạn chưa có tài khoản? <a href="#!/register" class="link-danger">Đăng kí</a>
+  </p>
+  <p class="mb-0">
+    Bạn quên mật khẩu?
+    <a href="#!/reset" class="link-danger">Lấy lại mật khẩu</a>
+  </p>
+</section>

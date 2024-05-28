@@ -1,0 +1,70 @@
+<div class="product-modal vstack">
+  <div
+    class="owl-carousel owl-theme owl-loaded border rounded overflow-hidden"
+    id="product-detail-carousel"
+  >
+    <div class="owl-stage-outer">
+      <div class="owl-stage">
+        <div
+          class="owl-item ratio ratio-1x1"
+          ng-repeat="image in productDetail.images"
+        >
+          <img
+            src="{{image}}"
+            alt="{{image}}"
+            class="img-fluid object-fit-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="owl-thumbs d-flex justify-content-center mt-3">
+    <div
+      class="owl-thumb img-fluid border ratio ratio-1x1 rounded overflow-hidden mx-1"
+      ng-repeat="image in productDetail.images"
+    >
+      <img src="{{image}}" alt="{{image}}" class="img-fluid object-fit-cover" />
+    </div>
+  </div>
+  <div class="my-3 fs-6">
+    <div class="share hstack gap-2 justify-content-center">
+      <span> Chia sẻ: </span>
+      <a href="#" class="text-decoration-none rounded-circle icon icon-fb"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a href="#" class="text-decoration-none rounded-circle icon icon-fb-ms"
+        ><i class="fa-brands fa-facebook-messenger"></i
+      ></a>
+      <a href="#" class="text-decoration-none rounded-circle icon icon-tw"
+        ><i class="fa-brands fa-twitter"></i
+      ></a>
+      <a href="#" class="text-decoration-none rounded-circle icon icon-pt"
+        ><i class="fa-brands fa-pinterest"></i
+      ></a>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    // Product Detail Carousel
+    $("#product-detail-carousel").owlCarousel({
+      items: 1,
+      nav: false,
+      dots: true,
+      rewind: true,
+      center: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      autoplayHoverPause: true,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: true,
+    });
+    // Sự kiện click trên thumb để chuyển slide trong carousel chính
+    $(".owl-thumb").on("click", function (e) {
+      e.preventDefault();
+      var index = $(this).index();
+      $("#product-detail-carousel").trigger("to.owl.carousel", index);
+    });
+  });
+</script>

@@ -1,0 +1,442 @@
+<div ng-controller="mainCtrl">
+  <!-- Topbar -->
+  <section class="topbar">
+    <div id="topbar-header" class="owl-carousel owl-theme p-1 bg-white">
+      <div class="item">
+        <p class="m-0 text-center">
+          Miễn phí vận chuyển với đơn hàng trên<strong> 500k</strong>
+        </p>
+      </div>
+      <div class="item">
+        <p class="m-0 text-center">
+          Khuyến mãi khủng <strong>35%</strong> tất cả sản phẩm
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Header -->
+  <section class="header-main container-fluid bg-primary">
+    <header class="header container">
+      <nav class="navbar navbar-expand-lg nav-light">
+        <div class="container-fluid">
+          <div>
+            <!-- Header Button -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarHeader"
+              aria-controls="navbarHeader"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <!-- Header Logo -->
+            <a class="navbar-brand" href="#!home">
+              <img src="images/logo.png" alt="logo.png" class="img-fuild" />
+            </a>
+          </div>
+          <!-- Header Icon -->
+          <div class="header-icon d-flex order-lg-1 gap-1">
+            <div class="search-container">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#searchModal"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+            <div class="user-container">
+              <a href="#!/login" class="btn btn-primary"
+                ><i class="fa-regular fa-user"></i
+              ></a>
+            </div>
+            <div class="cart-container">
+              <button
+                type="button"
+                class="btn btn-primary position-relative"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasCart"
+                aria-controls="offcanvasCart"
+              >
+                <i class="fa-solid fa-bag-shopping fa-bounce"></i>
+                <span
+                  class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+                >
+                  {{quantityCart > 9 ? '9+' : quantityCart}}
+                  <span class="visually-hidden">count product in cart</span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <!-- Header Nav -->
+          <div
+            class="collapse navbar-collapse justify-content-center fw-medium order-lg-0"
+            id="navbarHeader"
+          >
+            <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-2">
+              <li class="nav-item">
+                <a
+                  class="nav-link {{isActive('home')}}"
+                  aria-current="page"
+                  href="#!home"
+                  >Trang chủ</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle {{isActive('products')}} {{isActive('productdetail')}}"
+                  href="#!products/all"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sản phẩm
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#!products/all">Tất cả</a>
+                  </li>
+
+                  <li
+                    ng-repeat="category in categoriesProduct | limitTo : 4 : 0"
+                  >
+                    <a
+                      class="dropdown-item"
+                      href="#!products/{{category.value}}"
+                      >{{category.name}}</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle {{isActive('posts')}} {{isActive('postdetail')}}"
+                  href="#!posts/all"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Tin tức
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#!posts/all">Tất cả</a>
+                  </li>
+                  <li ng-repeat="category in categoriesPost">
+                    <a class="dropdown-item" href="#!posts/{{category.value}}"
+                      >{{category.name}}</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <a
+                class="nav-link {{isActive('about')}}"
+                ng-class="{ 'active': $location.path() === '/about' }"
+                aria-current="page"
+                href="#!about"
+                >Giới thiệu</a
+              >
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Offcanvas -->
+      <div
+        class="header-offcanvas offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasCart"
+        aria-labelledby="offcanvasCartLabel"
+      >
+        <div class="offcanvas-header pb-0">
+          <h5 class="offcanvas-title fw-bold" id="offcanvasCartLabel">
+            GIỎ HÀNG
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          class="offcanvas-body d-flex flex-column"
+          ng-show="cartData.length == 0"
+        >
+          <div
+            class="cart-main border-top border-bottom border-black overflow-y-scroll vstack"
+          >
+            <div
+              class="cart-none vstack gap-4 align-items-center justify-content-center"
+            >
+              <i class="fa-solid fa-cart-shopping fa-shake fa-5x"></i>
+              <p class="text-center fw-medium text-black-50">
+                Hiện chưa có sản phẩm nào
+              </p>
+            </div>
+          </div>
+          <div class="cart-bottom mt-4">
+            <div class="cart-action d-grid">
+              <a
+                href="#!products/all"
+                class="btn btn-primary rounded-pill fw-medium"
+                data-bs-dismiss="offcanvas"
+                ng-click="searchLoad()"
+                >Mua ngay</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="offcanvas-body d-flex flex-column"
+          ng-show="cartData.length > 0"
+        >
+          <div
+            class="cart-main border-top border-bottom border-black overflow-y-scroll vstack"
+          >
+            <div class="cart-product">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" ng-repeat="productCart in cartData">
+                  <div class="cart-product-item hstack gap-3">
+                    <div
+                      class="cart-product-img"
+                      ng-click="goToProductDetail(productCart.idProduct)"
+                    >
+                      <img
+                        src="{{productCart.image}}"
+                        alt="{{productCart.image}}"
+                        class="img-fluid img-thumbnail"
+                      />
+                    </div>
+                    <div class="cart-product-content">
+                      <div
+                        class="cart-product-top d-flex justify-content-between mb-2 gap-3 gap-sm-5"
+                      >
+                        <div class="cart-product-name">
+                          <h6
+                            class="m-0 fw-bold"
+                            ng-click="goToProductDetail(productCart.idProduct)"
+                          >
+                            {{productCart.name}}
+                          </h6>
+                          <span class="text-black-50">
+                            {{productCart.grindLevel}} {{productCart.weight}}
+                            {{productCart.color}} {{productCart.size}}
+                          </span>
+                        </div>
+                        <div class="cart-product-action">
+                          <button
+                            class="btn btn-dark rounded-circle"
+                            type="button"
+                            ng-click="removeCart(productCart.id)"
+                          >
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-product-bottom hstack gap-sm-5">
+                        <div class="input-group input-group-sm">
+                          <button
+                            class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                            type="button"
+                            ng-click="minusCart(productCart.id)"
+                          >
+                            <i class="fa-solid fa-minus"></i>
+                          </button>
+                          <button
+                            class="form-control text-center border border-secondary fw-bold"
+                            
+                          >{{productCart.quantity}}</button>
+                          <button
+                            class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                            type="button"
+                            ng-click="plusCart(productCart.id)"
+                          >
+                            <i class="fa-solid fa-plus"></i>
+                          </button>
+                        </div>
+                        <div class="price vstack align-items-end">
+                          <strong>{{productCart.sale | number : 0}}đ</strong>
+                          <del class="fw-medium text-black-50"
+                            >{{productCart.price | number : 0}}đ</del
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="cart-bottom mt-4">
+            <div class="cart-total">
+              <p class="mb-3 hstack justify-content-between">
+                Tổng cộng: <strong>{{totalCart | number : 0}}đ</strong>
+              </p>
+            </div>
+            <div class="cart-action d-grid">
+              <a
+                href="#!cart"
+                class="btn btn-primary rounded-pill fw-medium"
+                data-bs-dismiss="offcanvas"
+                ng-click="cartLoad()"
+                >Xem giỏ hàng</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </section>
+  <!-- Header // modal search  -->
+  <div
+    class="modal fade"
+    id="searchModal"
+    tabindex="-1"
+    aria-labelledby="searchModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="searchModalLabel">Tìm sản phẩm</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form class="py-1 p-lg-3">
+            <div class="input-group">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Tìm kiếm sản phẩm"
+                ng-model="searchProduct"
+              />
+              <button
+                class="btn btn-dark"
+                type="button"
+                id="button-addon2"
+                data-bs-dismiss="modal"
+                ng-click="searchLoad()"
+              >
+                <i class="fa-solid fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    // Header Topbar
+    $("#topbar-header").owlCarousel({
+      animateOut: "slideOutDown",
+      animateIn: "flipInX",
+      items: 1,
+      stagePadding: 30,
+      smartSpeed: 450,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: true,
+      dots: false,
+    });
+    // Header Main
+    $(function () {
+      var scroll = $(document).scrollTop();
+      var headerHeight = $(".header-main").outerHeight();
+
+      $(window).scroll(function () {
+        var scrolled = $(document).scrollTop();
+
+        if (scrolled > 26) {
+          $(".header-main").addClass("position-fixed").css("marginTop", "0");
+        } else {
+          $(".header-main").removeClass("position-fixed");
+        }
+
+        if (scrolled > headerHeight) {
+          $(".header-main").addClass("header-hide");
+        } else {
+          $(".header-main").removeClass("header-hide");
+        }
+
+        if (scrolled > scroll) {
+          $(".header-main").removeClass("header-show");
+        } else {
+          $(".header-main").addClass("header-show");
+        }
+
+        scroll = $(document).scrollTop();
+      });
+    });
+    // Header Topbar
+    $(".topbar-header").owlCarousel({
+      animateOut: "slideOutDown",
+      animateIn: "flipInX",
+      items: 1,
+      stagePadding: 30,
+      smartSpeed: 450,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: true,
+      dots: false,
+    });
+    // Header Bottombar
+    $(".header-bottombar").owlCarousel({
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 2000,
+      autoplayHoverPause: true,
+      loop: true,
+      margin: 24,
+      nav: false,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        576: {
+          items: 2,
+        },
+        768: {
+          items: 3,
+        },
+      },
+    });
+    // Header Offcanvas
+    const offcanvasElementList = document.querySelectorAll(".offcanvas");
+    const offcanvasList = [...offcanvasElementList].map((offcanvasEl) => {
+      const offcanvas = new bootstrap.Offcanvas(offcanvasEl);
+
+      // Thêm sự kiện resize để thay đổi vị trí của offcanvas dựa trên kích thước màn hình
+      window.addEventListener("resize", function () {
+        if (window.innerWidth < 992) {
+          // less than md
+          offcanvasEl.classList.remove("offcanvas-end");
+          offcanvasEl.classList.add("offcanvas-bottom");
+        } else {
+          offcanvasEl.classList.remove("offcanvas-bottom");
+          offcanvasEl.classList.add("offcanvas-end");
+        }
+      });
+
+      // Kích hoạt sự kiện resize một lần khi trang được tải
+      window.dispatchEvent(new Event("resize"));
+      return offcanvas;
+    });
+  });
+</script>

@@ -1,0 +1,749 @@
+<section ng-include="'views/containers/clients/bottombarHome.html'"></section>
+<!-- Home Banner -->
+<section class="home-banner container wow zoomIn">
+  <div
+    id="headerBanner"
+    class="carousel slide rounded-3 overflow-hidden mb-4"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#headerBanner"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#headerBanner"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#headerBanner"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#headerBanner"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img
+          src="/images/slide_1_img.png"
+          class="d-block w-100 rounded-3"
+          alt="banner1"
+        />
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img
+          src="/images/slide_2_img.png"
+          class="d-block w-100 rounded-3"
+          alt="banner2"
+        />
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img
+          src="/images/slide_3_img.png"
+          class="d-block w-100 rounded-3"
+          alt="banner3"
+        />
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img
+          src="/images/slide_4_img.png"
+          class="d-block w-100 rounded-3"
+          alt="banner4"
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#headerBanner"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#headerBanner"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+<!-- Home Category -->
+<section class="home-category container mb-4 mb-lg-5 wow flipInX">
+  <div class="row g-3 align-items-end">
+    <div
+      class="col-6 col-lg-3"
+      ng-repeat="category in categoriesProduct | limitTo : 4"
+    >
+      <div class="card bg-secondary border-0 rounded-3 pt-3">
+        <img
+          src="{{category.imageMain}}"
+          class="card-img-top rounded-3"
+          alt="{{category.name}}"
+        />
+        <div class="card-body vstack justify-content-center">
+          <h5 class="card-title text-center fw-bold">{{category.name}}</h5>
+          <a
+            href="#!products/{{category.value}}"
+            class="card-link btn btn-primary rounded-pill"
+            >Xem ngay</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Home Product Promotional -->
+<section class="container text-bg-danger rounded-3 mb-5 p-3 p-md-4">
+  <div class="owl-carousel owl-theme owl-loaded home-product-promotional">
+    <div class="owl-stage-outer">
+      <div class="mb-2 hstack justify-content-between align-items-center">
+        <div class="hstack gap-2 mx-2 wow rubberBand">
+          <i class="fa-solid fa-circle fa-beat-fade"></i>
+          <h4 class="title fw-bold m-0 text-uppercase">Sản phẩm khuyến mãi</h4>
+        </div>
+        <div class="owl-nav m-0">
+          <div
+            class="owl-prev bg-transparent text-white m-0 p-1 home-product-promotional-prev"
+          >
+            <i class="fa-solid fa-circle-chevron-left fa-2x"></i>
+          </div>
+          <div
+            class="owl-next bg-transparent text-white m-0 p-1 home-product-promotional-next"
+          >
+            <i class="fa-solid fa-circle-chevron-right fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="owl-stage">
+        <div
+          class="owl-item product-base-style"
+          ng-repeat="product in products | filter : {promotion : 1}"
+        >
+          <div class="product-base-style h-100">
+            <div class="card border-0 rounded h-100 position-relative">
+              <span
+                class="badge position-absolute d-inline-block z-3"
+                ng-if="product.price > product.sale"
+                >-{{(product.price - product.sale) / product.price * 100 |
+                number : 0}}%</span
+              >
+              <a href="#!productdetail/{{product.id}}" class="ratio ratio-1x1">
+                <img
+                  src="{{product.images[0]}}"
+                  class="card-img-top rounded-top"
+                  alt="{{product.name}}"
+                />
+                <i
+                  class="fa-solid fa-eye fa-2x text-dark"
+                  ng-click="goToProductDetail(product.id)"
+                ></i>
+              </a>
+              <div class="card-body text-center vstack justify-content-between">
+                <div class="product-body vstack">
+                  <div class="product-name-container">
+                    <span class="text-black-50 fw-medium text-uppercase">
+                      {{product.brandName}}
+                    </span>
+                    <a
+                      href="#!productdetail/{{product.id}}"
+                      class="product-name fw-medium mb-2 text-capitalize text-decoration-none text-black"
+                      ng-click="goToProductDetail(product.id)"
+                      data-bs-toggle="tooltip"
+                      data-bs-title="{{product.name}}"
+                    >
+                      {{product.name}}"
+                    </a>
+                  </div>
+                  <p class="mb-2">
+                    <strong>{{product.sale | number : 0}}đ </strong
+                    ><del ng-if="product.price > product.sale"
+                      >{{product.price | number : 0}}đ</del
+                    >
+                  </p>
+                </div>
+                <button
+                  class="btn btn-primary rounded-pill fw-bolder position-relative"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#productDetailModal"
+                  ng-click="getModalDetail(product.id)"
+                >
+                  <p class="m-0">Mua ngay</p>
+                  <i
+                    class="fa-solid fa-bag-shopping rounded-circle text-white p-2 position-absolute end-0 top-50 translate-middle-y"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a
+      href="#!products/all"
+      class="btn btn-primary rounded-pill fw-medium border-0 px-5 mt-4 hstack gap-2 home-product-promotional-btn"
+    >
+      Xem tất cả <i class="fa-solid fa-circle-chevron-right"></i>
+    </a>
+  </div>
+</section>
+<!-- Home Coupon -->
+<!-- Alert -->
+<div class="position-relative w-100">
+  <div
+    class="alert alert-success fade show wow backInRight position-absolute top-0 end-0 mx-3"
+    role="alert"
+    ng-show="copySuccess"
+  >
+    <strong>Sao chép mã thành công</strong>
+  </div>
+</div>
+<section class="container mb-5">
+  <h6 class="fw-bold">Khuyến mãi dành cho bạn</h6>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3 wow lightSpeedInLeft">
+        <div
+          class="row align-items-center home-coupon rounded-3 border border-1"
+          ng-repeat="voucher in vouchers"
+        >
+          <div class="col-3">
+            <img
+              src="{{voucher.image}}"
+              alt="coupon_img.webp"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-9 p-3 coupon-right">
+            <div
+              class="coupon-title hstack justify-content-between align-items-start"
+            >
+              <div class="coupon-title-text">
+                <span class="m-0 fw-bold d-block lh-1">Voucher giảm giá</span>
+                <span class="lh-1"
+                  >Đơn hàng từ {{voucher.price | number : 0}}</span
+                >
+              </div>
+              <i
+                class="fa-solid fa-circle-info fa-2x"
+                data-bs-toggle="popover"
+                data-bs-placement="top"
+                data-bs-html="true"
+                data-bs-content='<div class="pp-cp-title py-2 bg-secondary rounded">
+                                      <div class="row">
+                                        <div class="col-5"><span class="text-grap-50">Mã:</span></div>
+                                        <div class="col-7"><strong class="text-uppercase">Wego10</strong></div>
+                                      </div>
+                                    </div>
+                                    <div class="pp-cp-date py-2">
+                                      <div class="row">
+                                        <div class="col-5"><span class="text-grap-50">Hạn sử dụng:</span></div>
+                                      <div class="col-7"><span class="">31/3/2023</span></div>
+                                      </div>
+                                    </div>
+                                    <div class="pp-cp-func py-2 bg-secondary rounded">
+                                      <ul>
+                                        <li>Dành cho đơn hàng từ 500k</li>
+                                        <li>Mỗi khách hàng được sử dụng tối đa 3 lần.</li>
+                                        <li>Sao chép mã và nhập mã khuyến mãi ở trang thanh toán</li>
+                                      </ul>
+                                    </div>'
+              ></i>
+            </div>
+            <div
+              class="coupon-group d-flex justify-content-between align-items-end"
+            >
+              <div class="coupon-content mt-2">
+                <span class="m-0 d-block lh-base"
+                  >Nhập mã: <strong>{{voucher.code}}</strong></span
+                >
+                <span class="m-0 coupon-shelf lh-1"
+                  >HSD: {{voucher.endDate | date : 'dd/MM/yyyy'}}</span
+                >
+              </div>
+              <button
+                class="btn btn-primary rounded-pill fw-medium border-0 p-0 lh-base px-2"
+                ng-click="copyToClipboard(voucher.code)"
+              >
+                Sao chép mã
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Home Best Seller -->
+<section class="container mb-5">
+  <div class="home-bestseller">
+    <h4
+      class="title fw-bold m-0 text-uppercase mb-4 d-inline-block wow rubberBand"
+    >
+      Top sản phẩm bán chạy
+    </h4>
+    <div class="row g-3">
+      <div
+        class="col-6 col-sm-4 col-lg-3 col-xl-2"
+        ng-repeat="product in products | filter : {best : 1}"
+      >
+        <div class="product-base-style h-100">
+          <div class="card border-0 rounded h-100 position-relative">
+            <span
+              class="badge position-absolute d-inline-block z-3"
+              ng-if="product.price > product.sale"
+              >-{{(product.price - product.sale) / product.price * 100 | number
+              : 0}}%</span
+            >
+            <a href="#!productdetail/{{product.id}}" class="ratio ratio-1x1">
+              <img
+                src="{{product.images[0]}}"
+                class="card-img-top rounded-top"
+                alt="{{product.name}}"
+              />
+              <i
+                class="fa-solid fa-eye fa-2x text-dark"
+                ng-click="goToProductDetail(product.id)"
+              ></i>
+            </a>
+            <div class="card-body text-center vstack justify-content-between">
+              <div class="product-body vstack">
+                <div class="product-name-container">
+                  <span class="text-black-50 fw-medium text-uppercase">
+                    {{product.brandName}}
+                  </span>
+                  <a
+                    href="#!productdetail/{{product.id}}"
+                    class="product-name fw-medium mb-2 text-capitalize text-decoration-none text-black"
+                    ng-click="goToProductDetail(product.id)"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="{{product.name}}"
+                  >
+                    {{product.name}}"
+                  </a>
+                </div>
+                <p class="mb-2">
+                  <strong>{{product.sale | number : 0}}đ </strong
+                  ><del ng-if="product.price > product.sale"
+                    >{{product.price | number : 0}}đ</del
+                  >
+                </p>
+              </div>
+              <button
+                class="btn btn-primary rounded-pill fw-bolder position-relative"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#productDetailModal"
+                ng-click="getModalDetail(product.id)"
+              >
+                <p class="m-0">Mua ngay</p>
+                <i
+                  class="fa-solid fa-bag-shopping rounded-circle text-white p-2 position-absolute end-0 top-50 translate-middle-y"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Search Trends -->
+<section
+  class="home-search-trends container-xl bg-primary mb-5 wow jackInTheBox"
+>
+  <div class="row">
+    <div
+      class="d-none col-md-3 d-md-flex flex-column align-items-end justify-content-center fw-bold p-3"
+    >
+      <p class="title fs-6">Xu hướng tìm kiếm</p>
+      <a
+        href="#"
+        class="btn btn-dark fw-medium rounded-pill p-0 px-4 lh-lg fs-6 border-0"
+        >Xem ngay</a
+      >
+    </div>
+    <div class="col-md-9 px-md-5">
+      <h4 class="fw-bold text-center text-dark mt-4 d-block d-md-none">
+        Xu hướng tìm kiếm
+      </h4>
+      <div class="search-trends owl-carousel owl-theme owl-loaded">
+        <div class="owl-stage-outer">
+          <div class="owl-stage">
+            <div
+              class="owl-item py-4"
+              ng-repeat="category in categoriesProduct"
+            >
+              <div class="search-trend">
+                <a
+                  href="#!products/{{category.value}}"
+                  class="vstack gap-2 text-dark text-decoration-none fw-medium"
+                  ><img
+                    src="{{category.imageSub}}"
+                    alt="{{category.name}}"
+                    class="img-fluid rounded-circle"
+                  />
+                  <span class="text-center text-capitalize"
+                    >{{category.name}}</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- New Collection -->
+<section class="home-new-collection container mb-5">
+  <div
+    class="title d-flex flex-column gap-3 flex-md-row justify-content-md-between align-items-md-center mb-3"
+  >
+    <h4 class="fw-bold text-uppercase m-0 wow rubberBand">Bộ sưu tập mới</h4>
+    <div class="collection-tab">
+      <ul class="nav nav-pills" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active text-dark fw-bold rounded-pill border mx-1"
+            id="pills-maker-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-maker"
+            type="button"
+            role="tab"
+            aria-controls="pills-maker"
+            aria-selected="true"
+          >
+            Máy pha cà phê
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link text-dark fw-bold rounded-pill border mx-1"
+            id="pills-tablets-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-tablets"
+            type="button"
+            role="tab"
+            aria-controls="pills-tablets"
+            aria-selected="false"
+          >
+            Viên nén cà phê
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="content row g-3">
+    <div class="col-lg-3 d-lg-block d-none">
+      <div
+        class="bg-primary rounded-3 overflow-hidden d-flex align-items-center h-100 wow zoomInLeft"
+      >
+        <a href="#" class="image-hover-base w-100"
+          ><img
+            src="/images/home_coll_1_banner.jpg"
+            alt=""
+            class="img-fluid w-100 object-fit-cover"
+        /></a>
+      </div>
+    </div>
+    <div class="tab-content col-lg-9 col-12" id="pills-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="pills-maker"
+        role="tabpanel"
+        aria-labelledby="pills-maker-tab"
+        tabindex="0"
+      >
+        <div class="row g-3">
+          <div
+            class="col-xl-3 col-md-4 col-6"
+            ng-repeat="product in products | filter : {categoryValue : 'machine'}"
+          >
+            <div class="product-base-style h-100">
+              <div class="card border-0 rounded h-100 position-relative">
+                <span
+                  class="badge position-absolute d-inline-block z-3"
+                  ng-if="product.price > product.sale"
+                  >-{{(product.price - product.sale) / product.price * 100 |
+                  number : 0}}%</span
+                >
+                <a
+                  href="#!productdetail/{{product.id}}"
+                  class="ratio ratio-1x1"
+                >
+                  <img
+                    src="{{product.images[0]}}"
+                    class="card-img-top rounded-top"
+                    alt="{{product.name}}"
+                  />
+                  <i
+                    class="fa-solid fa-eye fa-2x text-dark"
+                    ng-click="goToProductDetail(product.id)"
+                  ></i>
+                </a>
+                <div
+                  class="card-body text-center vstack justify-content-between"
+                >
+                  <div class="product-body vstack">
+                    <div class="product-name-container">
+                      <span class="text-black-50 fw-medium text-uppercase">
+                        {{product.brandName}}
+                      </span>
+                      <a
+                        href="#!productdetail/{{product.id}}"
+                        class="product-name fw-medium mb-2 text-capitalize text-decoration-none text-black"
+                        ng-click="goToProductDetail(product.id)"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="{{product.name}}"
+                      >
+                        {{product.name}}"
+                      </a>
+                    </div>
+                    <p class="mb-2">
+                      <strong>{{product.sale | number : 0}}đ </strong
+                      ><del ng-if="product.price > product.sale"
+                        >{{product.price | number : 0}}đ</del
+                      >
+                    </p>
+                  </div>
+                  <button
+                    class="btn btn-primary rounded-pill fw-bolder position-relative"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#productDetailModal"
+                    ng-click="getModalDetail(product.id)"
+                  >
+                    <p class="m-0">Mua ngay</p>
+                    <i
+                      class="fa-solid fa-bag-shopping rounded-circle text-white p-2 position-absolute end-0 top-50 translate-middle-y"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-tablets"
+        role="tabpanel"
+        aria-labelledby="pills-tablets-tab"
+        tabindex="0"
+      >
+        <div class="row g-3">
+          <div
+            class="col-xl-3 col-md-4 col-6"
+            ng-repeat="product in products | filter : {categoryValue : 'capsule'}"
+          >
+            <div class="product-base-style h-100">
+              <div class="card border-0 rounded h-100 position-relative">
+                <span
+                  class="badge position-absolute d-inline-block z-3"
+                  ng-if="product.price > product.sale"
+                  >-{{(product.price - product.sale) / product.price * 100 |
+                  number : 0}}%</span
+                >
+                <a
+                  href="#!productdetail/{{product.id}}"
+                  class="ratio ratio-1x1"
+                >
+                  <img
+                    src="{{product.images[0]}}"
+                    class="card-img-top rounded-top"
+                    alt="{{product.name}}"
+                  />
+                  <i
+                    class="fa-solid fa-eye fa-2x text-dark"
+                    ng-click="goToProductDetail(product.id)"
+                  ></i>
+                </a>
+                <div
+                  class="card-body text-center vstack justify-content-between"
+                >
+                  <div class="product-body vstack">
+                    <div class="product-name-container">
+                      <span class="text-black-50 fw-medium text-uppercase">
+                        {{product.brandName}}
+                      </span>
+                      <a
+                        href="#!productdetail/{{product.id}}"
+                        class="product-name fw-medium mb-2 text-capitalize text-decoration-none text-black"
+                        ng-click="goToProductDetail(product.id)"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="{{product.name}}"
+                      >
+                        {{product.name}}"
+                      </a>
+                    </div>
+                    <p class="mb-2">
+                      <strong>{{product.sale | number : 0}}đ </strong
+                      ><del ng-if="product.price > product.sale"
+                        >{{product.price | number : 0}}đ</del
+                      >
+                    </p>
+                  </div>
+                  <button
+                    class="btn btn-primary rounded-pill fw-bolder position-relative"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#productDetailModal"
+                    ng-click="getModalDetail(product.id)"
+                  >
+                    <p class="m-0">Mua ngay</p>
+                    <i
+                      class="fa-solid fa-bag-shopping rounded-circle text-white p-2 position-absolute end-0 top-50 translate-middle-y"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Home Subbanner -->
+<section class="home-subbanner container-xxl mb-5">
+  <div class="row g-3">
+    <div class="col-12 col-md-6">
+      <a
+        href="#"
+        class="w-100 overflow-hidden d-block rounded image-hover-base wow flipInX"
+        ><img src="/images/homebanner_1_img.webp" alt="" class="img-fluid"
+      /></a>
+    </div>
+    <div class="col-12 col-md-6">
+      <a
+        href="#"
+        class="w-100 overflow-hidden d-block rounded image-hover-base wow flipInY"
+        ><img src="/images/homebanner_2_img.webp" alt="" class="img-fluid"
+      /></a>
+    </div>
+  </div>
+</section>
+<!-- Home Equipment -->
+<section class="home-equipment container mb-5">
+  <div class="row g-0">
+    <div class="col-12 col-lg-9 equipment-container p-3">
+      <div class="owl-carousel owl-theme owl-loaded home-equipment-carousel">
+        <div class="owl-stage-outer">
+          <div class="mb-2 hstack justify-content-between align-items-center">
+            <div class="hstack gap-2 mx-2">
+              <h4 class="title fw-bold m-0 text-uppercase wow rubberBand">
+                Công cụ pha chế chính hãng
+              </h4>
+            </div>
+            <div class="owl-nav m-0 hstack">
+              <div
+                class="home-equipment-prev bg-transparent text-black m-0 p-1"
+              >
+                <i class="fa-solid fa-circle-chevron-left fa-2x"></i>
+              </div>
+              <div
+                class="home-equipment-next bg-transparent text-black m-0 p-1"
+              >
+                <i class="fa-solid fa-circle-chevron-right fa-2x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="owl-stage">
+            <div class="owl-item" ng-repeat="chunk in chunkProductsTool">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item p-2" ng-repeat="product in chunk ">
+                  <div class="row">
+                    <div class="col-4">
+                      <a
+                        href="#!productdetail/{{product.id}}"
+                        ng-click="goToProductDetail(product.id)"
+                        class="ratio ratio-1x1"
+                      >
+                        <img
+                          src="{{product.images[0]}}"
+                          alt="{{product.images[0]}}"
+                          class="img-fluid w-100"
+                        />
+                      </a>
+                    </div>
+                    <div class="col-8 p-0 vstack gap-1">
+                      <a
+                        href="#!productdetail/{{product.id}}"
+                        ng-click="goToProductDetail(product.id)"
+                        class="m-0"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="{{product.name}}"
+                        >{{product.name}}</a
+                      >
+                      <div class="price hstack gap-2">
+                        <strong>{{product.sale | number : 0}}đ</strong>
+                        <del ng-if="product.price > product.sale"
+                          >{{product.price | number : 0}}đ</del
+                        >
+                        <div class="badge" ng-if="product.price > product.sale">
+                          -{{(product.price - product.sale) / product.price *
+                          100 | number : 0}}%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 d-lg-block d-none">
+      <div
+        class="bg-primary overflow-hidden h-100 d-flex align-items-center wow zoomInRight"
+      >
+        <a href="#" class="image-hover-base h-100"
+          ><img
+            src="/images/home_collection_3_banner.webp"
+            alt=""
+            class="img-fluid w-100 h-100 object-fit-cover"
+        /></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section ng-include="'views/base/clients/newPosts.html'"></section>
+<section ng-include="'views/base/clients/modalProduct.html'"></section>
+<script>
+  // Base
+  // TOOLTIP
+  const tooltipTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="tooltip"]'
+  );
+  const tooltipList = [...tooltipTriggerList].map(
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+  );
+  // POPOVERS
+  const popoverTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="popover"]'
+  );
+  const popoverList = [...popoverTriggerList].map(
+    (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+  );
+</script>

@@ -1,0 +1,147 @@
+<section ng-include="'views/containers/clients/bottombarHome.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!/home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Giới thiệu</li>
+    </ol>
+  </nav>
+</section>
+<!--About -->
+<section class="about container-xxl mb-3">
+  <div class="row g-0 about mb-3">
+    <div class="col-12">
+      <div class="postdetail p-3 bg-body mb-3">
+        <h4>Giới thiệu</h4>
+        <div class="mt-3">
+          <img
+            src="/images/about/about01_banner_bkg.webp"
+            class="img-fluid"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="p-3 bg-body h-100 wow lightSpeedInLeft">
+        <img
+          src="/images/about/about01_introduce1_img.webp"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+    </div>
+    <div class="about-content col-12 col-md-6">
+      <div class="p-3 bg-body h-100">
+        <span class="about-subtitle text-uppercase d-block text-center"
+          >Sự khởi đầu của Wego
+        </span>
+        <h4 class="fw-bold text-center">Câu chuyện thương hiệu</h4>
+        <p>
+          WeGo được thành lập bởi một nhóm coffeeholic - cụm từ đại diện cho
+          phần đông những người chọn cà phê là một phần của cuộc sống thường
+          nhật.
+        </p>
+        <p>
+          Chúng tôi có mọi thứ mình cần cho một thương hiệu cafe tại Sài Gòn.
+          Kiến thức, chuyên môn và một cộng đồng những người trẻ luôn tìm kiếm
+          cái mới.
+        </p>
+        <p>
+          Đây là thời điểm tốt nhất để du nhập một làn sóng cà phê mang lại trải
+          nghiệm dựa trên sự phát triển không ngừng của đô thị.
+        </p>
+        <p>
+          WeGo tin cà phê là điều giữ cho mọi thứ cân bằng. Trong nhịp sống đầy
+          biến chuyển, trải nghiệm luôn là sự kết hợp giữa tận hưởng và khám
+          phá. Và không gì tốt hơn việc có một cốc cà phê tuyệt vời bên cạnh
+          đồng hành.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row g-0 about mb-3">
+    <div class="about-content col-12 col-md-6">
+      <div class="p-3 bg-body h-100">
+        <span class="about-subtitle text-uppercase d-block text-center"
+          >3 Giá trị tạo nên Wego
+        </span>
+        <p class="m-0">TRẢI NGHIỆM</p>
+        <p>
+          Chúng tôi tin rằng ngoài hương vị, sự quen thuộc là thứ mọi người tìm
+          kiếm trong mỗi cốc cà phê. Đó là độ ổn định về chất lượng; độ cân bằng
+          của hương vị; và mùi thơm đặc trưng của từng loại hạt.
+        </p>
+        <p class="m-0">THÀNH THỊ</p>
+        <p>
+          WeGo theo đuổi việc trở thành một phần của lối sống đô thị. Hướng đến
+          sự tiện lợi và linh hoạt, WeGo cung cấp một không gian tối ưu hoá cho
+          công việc và những buổi gặp gỡ bạn bè.
+        </p>
+        <p class="m-0">THIẾT Kiến</p>
+        <p>
+          Ở WeGo, tiêu chuẩn được chúng tôi đặt lên hàng đầu. Điều đó hiện diện
+          trong mọi thứ: từ hình ảnh, sản phẩm cho đến không gian quán. Một nét
+          giao thoa giữa sự hiện đại và chủ nghĩa tối giản (minimalism).
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="p-3 bg-body h-100 wow lightSpeedInRight">
+        <img
+          src="/images/about/about01_introduce2_img.webp"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row g-0 about">
+    <div class="col-12">
+      <div class="p-3 bg-body">
+        <form ng-submit="submitFeedback($event)" novalidate>
+          <h4 class="fw-bold text-center wow rubberBand">
+            Góp ý với chúng tôi
+          </h4>
+          <div class="mb-3">
+            <label for="name" class="form-label">Họ và tên</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nhập họ và tên"
+              ng-model="feedback.name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email của bạn</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Nhập email của bạn"
+              ng-model="feedback.email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Nội dung</label>
+            <textarea
+              class="form-control"
+              id="message"
+              rows="5"
+              placeholder="Nhập nội dung"
+              ng-model="feedback.message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Gửi góp ý</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

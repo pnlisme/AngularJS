@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wego Coffee Store</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/fontawesome.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-secondary" ng-controller="mainCtrl">
+    <section ng-include="'views/containers/clients/header.html'"></section>
+    <div ng-view></div>
+    <section ng-include="'views/containers/clients/footer.html'"></section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="controllers/homeCtrl.js"></script>
+    <script src="controllers/productsCtrl.js"></script>
+    <script src="controllers/productDetailCtrl.js"></script>
+    <script src="controllers/postsCtrl.js"></script>
+    <script src="controllers/postDetailCtrl.js"></script>
+    <script src="controllers/aboutCtrl.js"></script>
+    <script src="controllers/cartCtrl.js"></script>
+    <script src="controllers/loginCtrl.js"></script>
+    <script src="controllers//registerCtrl.js"></script>
+    <script src="controllers//profileCtrl.js"></script>
+    <script src="controllers//testCtrl.js"></script>
+
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>

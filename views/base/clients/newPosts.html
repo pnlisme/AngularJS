@@ -1,0 +1,72 @@
+<!-- Home New Posts -->
+<section class="home-new-post container-xxl mb-5">
+  <div class="title-container">
+    <h4 class="fw-bold text-uppercase mb-3">Bài viết mới nhất</h4>
+  </div>
+  <div class="owl-carousel owl-theme" id="home-new-post-carousel">
+    <div class="item" ng-repeat="post in posts">
+      <div class="home-new-post-item card border overflow-hidden h-100">
+        <div class="ratio ratio-1x1 overflow-hidden">
+          <a
+            href="#!postdetail/{{post.id}}"
+            class="image-hover-base ratio ratio-1x1"
+            ><img
+              src="{{post.image}}"
+              alt="{{post.title}}"
+              class="card-img-top rounded-top object-fit-cover"
+          /></a>
+        </div>
+        <div class="card-body content-container">
+          <a
+            href="#!postdetail/{{post.id}}"
+            class="card-title fw-bold text-uppercase m-0"
+            data-bs-toggle="tooltip"
+            data-bs-title="{{post.title}}"
+          >
+            {{post.title}}
+          </a>
+          <p class="card-text text-black-50 m-0">{{post.desc}}</p>
+        </div>
+        <div class="card-footer border-0 hstack justify-content-between">
+          <div class="footer-left">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>{{post.date}}</span>
+          </div>
+          <div class="footer-right">
+            <a href="#!postdetail/{{post.id}}" class="fst-italic">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    // Home New Post
+    $("#home-new-post-carousel").owlCarousel({
+      items: 4,
+      margin: 16,
+      nav: false,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplaySpeed: 2000,
+      autoplayHoverPause: true,
+      rewind: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        576: {
+          items: 2,
+        },
+        768: {
+          items: 3,
+        },
+        992: {
+          items: 4,
+        },
+      },
+    });
+  });
+</script>

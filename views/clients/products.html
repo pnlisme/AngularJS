@@ -1,0 +1,342 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!/home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#!products/all" class="text-black text-decoration-none"
+          >Danh mục</a
+        >
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{titleProduct}}
+      </li>
+    </ol>
+  </nav>
+</section>
+<!-- Product -->
+<section
+  class="container-xxl mb-3"
+  ng-init="limitProduct = 8; showBtn = false; hideBtn = false"
+>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="row product-filter position-sticky">
+        <div class="col-12">
+          <div
+            class="accordion mb-3 wow lightSpeedInLeft"
+            id="accordionBrandProduct"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseBrandProduct"
+                  aria-expanded="true"
+                  aria-controls="collapseBrandProduct"
+                >
+                  Nhà cung cấp
+                </button>
+              </h2>
+              <div
+                id="collapseBrandProduct"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionBrandProduct"
+              >
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      ng-model="brandWego"
+                      ng-change="getBrandProduct(brandWego, 'wego')"
+                      id="wego"
+                    />
+                    <label class="form-check-label" for="wego">
+                      Wego Coffee
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      ng-model="brandCafede"
+                      ng-change="getBrandProduct(brandCafede, 'cafede')"
+                      id="cafede"
+                    />
+                    <label class="form-check-label" for="cafede">
+                      Cafede Kona
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      ng-model="brandMorning"
+                      ng-change="getBrandProduct(brandMorning, 'morning')"
+                      id="morning"
+                    />
+                    <label class="form-check-label" for="morning">
+                      Morning
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      ng-model="brandBrewico"
+                      ng-change="getBrandProduct(brandBrewico, 'brewico')"
+                      id="brewico"
+                    />
+                    <label class="form-check-label" for="brewico">
+                      Brewico
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div
+            class="accordion mb-3 wow lightSpeedInLeft"
+            id="accordionPriceProduct"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapsePriceProduct"
+                  aria-expanded="true"
+                  aria-controls="collapsePriceProduct"
+                >
+                  Lọc giá
+                </button>
+              </h2>
+              <div
+                id="collapsePriceProduct"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionPriceProduct"
+              >
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="price"
+                      ng-model="priceProduct"
+                      value="all"
+                      ng-change="getPriceProduct(priceProduct)"
+                      id="allPrice"
+                    />
+                    <label class="form-check-label" for="allPrice">
+                      Tất cả
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="price"
+                      ng-model="priceProduct"
+                      value="100k"
+                      ng-change="getPriceProduct(priceProduct)"
+                      id="100k"
+                    />
+                    <label class="form-check-label" for="100k">
+                      Dưới 100.000đ
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="price"
+                      ng-model="priceProduct"
+                      value="300k"
+                      ng-change="getPriceProduct(priceProduct)"
+                      id="300k"
+                    />
+                    <label class="form-check-label" for="300k">
+                      100.000đ - 300.000đ
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="price"
+                      ng-model="priceProduct"
+                      value="500k"
+                      ng-change="getPriceProduct(priceProduct)"
+                      id="500k"
+                    />
+                    <label class="form-check-label" for="500k">
+                      300.000đ - 500.000đ
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="price"
+                      ng-model="priceProduct"
+                      value="1m"
+                      ng-change="getPriceProduct(priceProduct)"
+                      id="1m"
+                    />
+                    <label class="form-check-label" for="1m">
+                      500.000đ - 1.000.000đ
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="price"
+                      ng-model="priceProduct"
+                      value="1m+"
+                      ng-change="getPriceProduct(priceProduct)"
+                      id="1mUp"
+                    />
+                    <label class="form-check-label" for="1mUp">
+                      Trên 1.000.000đ
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div
+        class="d-flex justify-content-between align-items-center mb-3"
+        ng-show="searchProduct != ''"
+      >
+        <p class="m-0">Tìm kiếm: <strong>{{searchProduct}}</strong></p>
+        <button class="btn btn-danger border" ng-click="searchProduct = ''">
+          Loại bỏ tìm kiếm
+        </button>
+      </div>
+      <div class="row product-title mb-3 g-2">
+        <div class="col-12 col-sm-8 left hstack gap-3 align-items-center">
+          <h4 class="m-0 d-inline-block wow rubberBand">{{titleProduct}}</h4>
+          <p class="hstack gap-1 m-0">
+            <strong
+              >{{(products | filterCustom : categoryProduct : brandProduct :
+              priceMin : priceMax : searchProduct).length }}
+            </strong>
+            sản phẩm
+          </p>
+        </div>
+        <div class="col-12 col-sm-4 right" ng-init="sortProducts = '---id'">
+          <select class="form-select form-select-sm" ng-model="sortProducts">
+            <option value="---id">Mới nhất</option>
+            <option value="--id">Cũ nhất</option>
+            <option value="-sale">Giá: giảm dần</option>
+            <option value="sale">Giá: tăng dần</option>
+            <option value="name">Tên: A-Z</option>
+            <option value="-name">Tên: Z-A</option>
+          </select>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div
+          class="col-6 col-sm-4 col-md-3"
+          ng-repeat="product in products | filterCustom : categoryProduct : brandProduct : priceMin :
+          priceMax : searchProduct | orderBy: sortProducts | limitTo: limitProduct"
+        >
+          <div class="product-base-style h-100">
+            <div class="card border-0 rounded h-100 position-relative">
+              <span
+                class="badge position-absolute d-inline-block z-3"
+                ng-if="product.price > product.sale"
+                >-{{(product.price - product.sale) / product.price * 100 |
+                number : 0}}%</span
+              >
+              <a href="#!productdetail/{{product.id}}" class="ratio ratio-1x1">
+                <img
+                  src="{{product.images[0]}}"
+                  class="card-img-top rounded-top"
+                  alt="{{product.name}}"
+                />
+                <i
+                  class="fa-solid fa-eye fa-2x text-dark"
+                  ng-click="goToProductDetail(product.id)"
+                ></i>
+              </a>
+              <div class="card-body text-center vstack justify-content-between">
+                <div class="product-body vstack">
+                  <div class="product-name-container">
+                    <span class="text-black-50 fw-medium text-uppercase">
+                      {{product.brandName}}
+                    </span>
+                    <a
+                      href="#!productdetail/{{product.id}}"
+                      class="product-name fw-medium mb-2 text-capitalize text-decoration-none text-black"
+                      ng-click="goToProductDetail(product.id)"
+                      data-bs-toggle="tooltip"
+                      data-bs-title="{{product.name}}"
+                    >
+                      {{product.name}}"
+                    </a>
+                  </div>
+                  <p class="mb-2">
+                    <strong>{{product.sale | number : 0}}đ </strong
+                    ><del ng-if="product.price > product.sale"
+                      >{{product.price | number : 0}}đ</del
+                    >
+                  </p>
+                </div>
+                <button
+                  class="btn btn-primary rounded-pill fw-bolder position-relative"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#productDetailModal"
+                  ng-click="getModalDetail(product.id)"
+                >
+                  <p class="m-0">Mua ngay</p>
+                  <i
+                    class="fa-solid fa-bag-shopping rounded-circle text-white p-2 position-absolute end-0 top-50 translate-middle-y"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-flex justify-content-center"
+        ng-show="(products | filterCustom : categoryProduct : brandProduct : priceMin :
+      priceMax : searchProduct).length > 8"
+      >
+        <button
+          class="btn btn-primary rounded-pill mt-3 px-5 wow tada"
+          type="button"
+          ng-hide="showBtn"
+          ng-click="moreProduct()"
+        >
+          Xem thêm
+        </button>
+        <button
+          class="btn btn-primary rounded-pill mt-3 px-5"
+          type="button"
+          ng-show="hideBtn"
+          ng-click="lessProduct()"
+        >
+          Ẩn bớt
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section ng-include="'views/base/clients/modalProduct.html'"></section>

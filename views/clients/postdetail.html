@@ -1,0 +1,162 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#" class="text-black text-decoration-none">Tin tức</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Các phương pháp pha cà phê phổ biến
+      </li>
+    </ol>
+  </nav>
+</section>
+<!-- Post Detail -->
+<section class="container-xxl mb-3">
+  <div class="row g-3">
+    <div class="col-lg-8 order-0">
+      <div class="postdetail p-3 bg-body mb-5">
+        <h4 class="wow rubberBand d-inline-block">{{post.title}}</h4>
+        <p class="postdetail-author">
+          bởi: {{post.author}}<span class="mx-2">
+            <i class="fa-solid fa-circle fa-2xs"></i>
+          </span>
+          {{post.date | date : 'dd-MM-yyyy'}}
+        </p>
+        <div class="mb-3">
+          <img
+            src="{{post.image}}"
+            alt="{{post.image}}"
+            class="img-fluid"
+            style="width: 100%"
+          />
+        </div>
+        <p>{{post.desc}}</p>
+        <div ng-repeat="contents in post.content">
+          <h6 class="fw-bold text-uppercase wow heartBeat d-inline-block">
+            {{contents[0]}}
+          </h6>
+          <p class="mb-1">{{contents[1]}}</p>
+          <p style="text-align: justify" ng-bind-html="contents[2]"></p>
+          <div class="mb-3">
+            <img
+              src="{{contents[3]}}"
+              alt="{{contents[3]}}"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row product-title mb-3 g-2" ng-show="postsRelated.length > 0">
+        <div class="col-12 col-sm-8 left hstack gap-3 align-items-center">
+          <h4 class="m-0">Tin tức liên quan</h4>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-sm-6" ng-repeat="post in postsRelated">
+          <div class="home-new-post-item card border overflow-hidden h-100">
+            <div class="overflow-hidden">
+              <a
+                href="#!postdetail/{{post.id}}"
+                class="image-hover-base ratio ratio-1x1"
+                ><img
+                  src="{{post.image}}"
+                  alt="{{post.image}}"
+                  class="card-img-top rounded-top object-fit-cover"
+              /></a>
+            </div>
+            <div class="card-body content-container">
+              <a
+                href="#!postdetail/{{post.id}}"
+                class="card-title fw-bold text-uppercase m-0"
+                data-bs-toggle="tooltip"
+                data-bs-title="{{post.title}}"
+              >
+                {{post.title}}
+              </a>
+              <p class="card-text text-black-50 m-0">{{post.desc}}</p>
+            </div>
+            <div class="card-footer border-0 hstack justify-content-between">
+              <div class="footer-left">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>{{post.date}}</span>
+              </div>
+              <div class="footer-right">
+                <a href="#!postdetail/{{post.id}}" class="fst-italic"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 order-1">
+      <div class="row position-sticky postdetail-right">
+        <div class="col-12">
+          <div class="accordion mb-3" id="accordionNewPost">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseNewPost"
+                  aria-expanded="true"
+                  aria-controls="collapseNewPost"
+                >
+                  Bài viết mới nhất
+                </button>
+              </h2>
+              <div
+                id="collapseNewPost"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionNewPost"
+              >
+                <div
+                  class="post-accordion accordion-body wow lightSpeedInRight"
+                >
+                  <div
+                    class="row g-2"
+                    ng-repeat="post in posts | orderBy: '-id' | limitTo: 4"
+                  >
+                    <div class="col-2 col-lg-4">
+                      <a
+                        href="#!postdetail/{{post.id}}"
+                        class="position-relative ratio ratio-1x1"
+                        ><img
+                          src="{{post.image}}"
+                          alt="{{post.image}}"
+                          class="img-thumbnail object-fit-cover"
+                        />
+                        <span
+                          class="rounded-circle bg-danger position-absolute top-50 start-0 translate-middle"
+                          >{{$index + 1}}</span
+                        >
+                      </a>
+                    </div>
+                    <div class="post-accordion-info col-10 col-lg-8">
+                      <p class="text-truncate">
+                        <a
+                          href="#!postdetail/{{post.id}}"
+                          class="text-black text-decoration-none"
+                          >{{post.title}}</a
+                        >
+                      </p>
+                      <span>Tin tức - </span>
+                      <time>{{post.date}}</time>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,455 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a
+          href="#!products/{{productDetail.categoryValue}}"
+          class="text-black text-decoration-none"
+          >{{productDetail.categoryName}}</a
+        >
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{productDetail.name}}
+      </li>
+    </ol>
+  </nav>
+</section>
+<!-- Product Detail -->
+<section class="container-xxl productdetail product-modal-base mb-5">
+  <div class="row g-3">
+    <div class="col-12 col-lg-5">
+      <div class="bg-body p-3 position-sticky productdetail-sticky">
+        <section ng-include="'views/base/clients/detail.html'"></section>
+      </div>
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="bg-body p-4 productdetail-info">
+        <form class="product-modal-content mb-3">
+          <h6 class="fw-bold">{{product.name}}</h6>
+          <p>
+            Tình trạng:
+            <strong
+              >{{productDetail.quantity > 0 ? 'Còn hàng' : 'Hết hàng'}}</strong
+            >
+            | Thương hiệu:
+            <strong>{{productDetail.brandName}}</strong>
+          </p>
+          <div class="hstack align-items-center gap-3 mb-3">
+            <span class="fs-6 fw-bold">Giá:</span>
+            <p class="m-0 hstack align-items-center gap-2">
+              <strong class="fs-5">{{productDetail.sale | number : 0}}đ </strong
+              ><del class="fs-5">{{productDetail.price | number : 0}}đ</del>
+              <span class="badge"
+                >-{{(productDetail.price - productDetail.sale) /
+                productDetail.price * 100 | number : 0}}%</span
+              >
+            </p>
+          </div>
+          <div
+            class="hstack justify-content-between align-items-end mb-3"
+            ng-show="productDetail.grindLevel != null"
+          >
+            <span class="fs-6 fw-bold">Mức độ xay:</span>
+            <select
+              class="form-select form-select-sm"
+              ng-model="cart.grindLevel"
+            >
+              <option
+                value="{{grindLevel}}"
+                ng-repeat="grindLevel in productDetail.grindLevel"
+              >
+                {{grindLevel}}
+              </option>
+            </select>
+          </div>
+          <div
+            class="hstack justify-content-between align-items-end mb-3"
+            ng-show="productDetail.weight != null"
+          >
+            <span class="fs-6 fw-bold">Khối lượng:</span>
+            <select ng-model="cart.weight" class="form-select form-select-sm">
+              <option
+                value="{{weight}}"
+                ng-repeat="weight in productDetail.weight"
+              >
+                {{weight}}
+              </option>
+            </select>
+          </div>
+          <div
+            class="hstack justify-content-between align-items-end mb-3"
+            ng-show="productDetail.color != null"
+          >
+            <span class="fs-6 fw-bold">Màu sắc:</span>
+            <select ng-model="cart.color" class="form-select form-select-sm">
+              <option
+                value="{{color}}"
+                ng-repeat="color in productDetail.color"
+              >
+                {{color}}
+              </option>
+            </select>
+          </div>
+          <div
+            class="hstack justify-content-between align-items-end mb-3"
+            ng-show="productDetail.size != null"
+          >
+            <span class="fs-6 fw-bold">Kích thước:</span>
+            <select ng-model="cart.size" class="form-select form-select-sm">
+              <option value="{{size}}" ng-repeat="size in productDetail.size">
+                {{size}}
+              </option>
+            </select>
+          </div>
+          <div class="hstack justify-content-between align-items-end mb-3">
+            <span class="fs-6 fw-bold">Số lượng:</span>
+            <div
+              class="input-group input-group-sm"
+              style="max-width: 140px"
+              ng-init="cart.quantity = 1"
+            >
+              <button
+                class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                type="button"
+                ng-click="cart.quantity = cart.quantity == 1 ? 1 : cart.quantity - 1"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input
+                type="number"
+                class="form-control text-center border border-secondary fw-bold"
+                min="1"
+                ng-model="cart.quantity"
+              />
+              <button
+                class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                type="button"
+                ng-click="cart.quantity =  cart.quantity + 1"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <hr />
+          <div class="d-flex flex-column flex-lg-row gap-3">
+            <div class="w-100">
+              <button
+                class="btn productdetail-add text-black rounded fw-bolder border w-100"
+                type="button"
+                ng-click="addToCart()"
+              >
+                Thêm vào giỏ hàng
+              </button>
+            </div>
+            <div class="w-100">
+              <button
+                ng-click="buyNow()"
+                class="btn productdetail-buy btn-primary rounded fw-bolder w-100 border"
+                type="button"
+              >
+                Mua ngay
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="row g-1 productdetail-deliverly">
+          <div class="col-12 col-md-6 col-lg-4">
+            <span class="hstack gap-2 align-self-center h-100 my-1">
+              <img
+                src="/images/deliverly/product_deliverly_1_ico.webp"
+                width="28"
+                alt=""
+              />
+              Cam kết 100% chính hãng
+            </span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <span class="hstack gap-2 align-self-center h-100 my-1">
+              <img
+                src="/images/deliverly/product_deliverly_2_ico.png"
+                width="28"
+                alt=""
+              />
+              Miễn phí giao hàng
+            </span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <span class="hstack gap-2 align-self-center h-100 my-1">
+              <img
+                src="/images/deliverly/product_deliverly_3_ico.png"
+                width="28"
+                alt=""
+              />
+              Hỗ trợ 24/7
+            </span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <span class="hstack gap-2 align-self-center h-100">
+              <img
+                src="/images/deliverly/product_deliverly_4_ico.webp"
+                width="28"
+                alt=""
+              />
+              Hoàn 111% nếu hàng giả
+            </span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <span class="hstack gap-2 align-self-center h-100">
+              <img
+                src="/images/deliverly/product_deliverly_5_ico.webp"
+                width="28"
+                alt=""
+              />
+              Mở hộp kiểm tra nhận hàng
+            </span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <span class="hstack gap-2 align-self-center h-100">
+              <img
+                src="/images/deliverly/product_deliverly_6_ico.webp"
+                width="28"
+                alt=""
+              />
+              Đổi trả trong 7 ngày
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Home Coupon -->
+      <section class="bg-body p-3 mt-3">
+        <p class="fw-bold">Khuyến mãi dành cho bạn</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div
+                class="row align-items-center home-coupon rounded-3 border border-1"
+              >
+                <div class="col-3">
+                  <img
+                    src="/images/coupon_img.webp"
+                    alt="coupon_img.webp"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9 p-3 coupon-right">
+                  <div
+                    class="coupon-title hstack justify-content-between align-items-start"
+                  >
+                    <div class="coupon-title-text">
+                      <span class="m-0 fw-bold d-block lh-1"
+                        >Miễn phí vận chuyển</span
+                      >
+                      <span class="lh-1">Đơn hàng từ 500k</span>
+                    </div>
+                    <i
+                      class="fa-solid fa-circle-info fa-2x"
+                      data-bs-toggle="popover"
+                      data-bs-placement="top"
+                      data-bs-html="true"
+                      data-bs-content='<div class="pp-cp-title py-2 bg-secondary rounded">
+            <div class="row">
+              <div class="col-5"><span class="text-grap-50">Mã:</span></div>
+              <div class="col-7"><strong class="text-uppercase">Wego10</strong></div>
+            </div>
+          </div>
+          <div class="pp-cp-date py-2">
+            <div class="row">
+              <div class="col-5"><span class="text-grap-50">Hạn sử dụng:</span></div>
+              <div class="col-7"><span class="">31/3/2023</span></div>
+            </div>
+          </div>
+          <div class="pp-cp-func py-2 bg-secondary rounded">
+            <ul>
+              <li>Dành cho đơn hàng từ 500k</li>
+              <li>Mỗi khách hàng được sử dụng tối đa 3 lần.</li>
+              <li>Sao chép mã và nhập mã khuyến mãi ở trang thanh toán</li>
+            </ul>
+          </div>'
+                    ></i>
+                  </div>
+                  <div
+                    class="coupon-group d-flex justify-content-between align-items-end"
+                  >
+                    <div class="coupon-content mt-2">
+                      <span class="m-0 d-block lh-base"
+                        >Nhập mã: <strong>WEGO10</strong></span
+                      >
+                      <span class="m-0 coupon-shelf lh-1">HSD: 31/3/2024</span>
+                    </div>
+                    <button
+                      class="btn btn-primary rounded-pill fw-medium border-0 p-0 lh-base px-2"
+                    >
+                      Sao chép mã
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Product More -->
+      <div class="productdetail-more-info bg-body p-3 mt-3">
+        <ul class="nav nav-tabs" id="productTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active fw-bold"
+              id="product-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#product-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="product-tab-pane"
+              aria-selected="true"
+            >
+              Mô tả sản phẩm
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content p-1 mt-3" id="productTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="product-tab-pane"
+            role="tabpanel"
+            aria-labelledby="product-tab"
+            tabindex="0"
+          >
+            <div
+              ng-bind-html="productDetail.description.content"
+              ng-show="productDetail.description != null"
+            ></div>
+            <br />
+            <br />
+            <img
+              src="{{img}}"
+              class="img-fluid"
+              alt=""
+              ng-repeat="img in productDetail.description.images"
+              ng-show="productDetail.description.images != null"
+            />
+            <p class="fs-6 m-0" ng-hide="productDetail.description != null">
+              Chưa có thông tin mô tả
+            </p>
+            <a
+              ng-show="productDetail.description != null"
+              href="#"
+              class="productdetail-hide d-inline-block w-100 text-center text-decoration-none text-black py-3"
+            >
+              <i class="fa-solid fa-circle-minus"></i> Ẩn bớt nội dụng
+            </a>
+            <div
+              class="productdetail-coating"
+              ng-show="productDetail.description != null"
+            >
+              <a
+                href="#"
+                class="productdetail-show d-inline-block w-100 text-center text-decoration-none text-black py-3"
+              >
+                <i class="fa-solid fa-circle-plus"></i> Hiển thị nội dung
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Product Related -->
+<section class="container mb-5">
+  <div class="home-bestseller">
+    <h4
+      class="title fw-bold m-0 text-uppercase mb-4 wow rubberBand d-inline-block"
+    >
+      Sản phẩm liên quan
+    </h4>
+    <div class="row g-3">
+      <div
+        class="col-6 col-sm-4 col-lg-3 col-xl-2"
+        ng-repeat="product in products | filterRalated: productDetail.categoryValue:productDetail.id | limitTo: 6
+      "
+      >
+        <div class="product-base-style h-100">
+          <div class="card border-0 rounded h-100 position-relative">
+            <span
+              class="badge position-absolute d-inline-block z-3"
+              ng-if="product.price > product.sale"
+              >-{{(product.price - product.sale) / product.price * 100 | number
+              : 0}}%</span
+            >
+            <a href="#!productdetail/{{product.id}}" class="ratio ratio-1x1">
+              <img
+                src="{{product.images[0]}}"
+                class="card-img-top rounded-top"
+                alt="{{product.name}}"
+              />
+              <i class="fa-solid fa-eye fa-2x text-dark"></i>
+            </a>
+            <div class="card-body text-center vstack justify-content-between">
+              <div class="product-body vstack">
+                <div class="product-name-container">
+                  <span class="text-black-50 fw-medium text-uppercase">
+                    {{product.brandName}}
+                  </span>
+                  <a
+                    href="#!productdetail/{{product.id}}"
+                    class="product-name fw-medium mb-2 text-capitalize text-decoration-none text-black"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="{{product.name}}"
+                  >
+                    {{product.name}}"
+                  </a>
+                </div>
+                <p class="mb-2">
+                  <strong>{{product.sale | number : 0}}đ </strong
+                  ><del ng-if="product.price > product.sale"
+                    >{{product.price | number : 0}}đ</del
+                  >
+                </p>
+              </div>
+              <button
+                class="btn btn-primary rounded-pill fw-bolder position-relative"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#productDetailModal"
+                ng-click="getModalDetail(product.id)"
+              >
+                <p class="m-0">Mua ngay</p>
+                <i
+                  class="fa-solid fa-bag-shopping rounded-circle text-white p-2 position-absolute end-0 top-50 translate-middle-y"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section ng-include="'views/base/clients/modalProduct.html'"></section>
+<script>
+  // Product Detail Carousel
+  $("#product-detail-carousel").owlCarousel({
+    items: 1,
+    nav: false,
+    dots: true,
+    rewind: true,
+    center: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 6000,
+    autoplayHoverPause: true,
+    autoplaySpeed: 1000,
+    autoplayHoverPause: true,
+  });
+  // Sự kiện click trên thumb để chuyển slide trong carousel chính
+  $(".owl-thumb").on("click", function (e) {
+    e.preventDefault();
+    var index = $(this).index();
+    $("#product-detail-carousel").trigger("to.owl.carousel", index);
+  });
+</script>

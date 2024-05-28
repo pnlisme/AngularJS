@@ -1,0 +1,197 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!/home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Đăng kí</li>
+    </ol>
+  </nav>
+</section>
+<!-- Register -->
+<section class="login container rounded bg-body mb-5 p-4 p-sm-5">
+  <pre>
+    {{registerUserForm.password.$error.pattern ? 'pass-p-true' : 'pass-p-false'}}
+    {{registerUserForm.password.$error.required ? 'pass-true' : 'pass-false'}}
+    {{registerUserForm.repassword.$error.pattern ? 'repass-p-true' : 'repass-p-false'}}
+    {{registerUserForm.repassword.$error.required ? 'repass-true' : 'repass-false'}}
+    {{user.password != user.repassword ? 'repass-true' : 'repass-false'}}
+  </pre>
+  <pre>
+    {{registerUserForm.phone.$invalid}}
+  </pre>
+  <form name="registerUserForm" class="needs-validation" novalidate>
+    <h2 class="fw-bold text-center py-3">Đăng kí</h2>
+    <div class="row g-3">
+      <div class="col-12 col-sm-6">
+        <input
+          type="text"
+          name="firstname"
+          class="form-control fst-italic"
+          placeholder="Họ"
+          ng-model="user.firstname"
+          required
+        />
+        <div class="invalid-feedback">Vui lòng nhập họ của bạn</div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <input
+          type="text"
+          name="lastname"
+          class="form-control fst-italic"
+          placeholder="Tên"
+          ng-model="user.lastname"
+          required
+        />
+        <div class="invalid-feedback">Vui lòng nhập tên của bạn</div>
+      </div>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="inlineChooseGender"
+        id="male"
+        value="male"
+        ng-model="user.gender"
+        required
+      />
+      <label class="form-check-label" for="male">Nam</label>
+    </div>
+    <div class="form-check form-check-inline mt-3">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="inlineChooseGender"
+        id="famale"
+        value="famale"
+        ng-model="user.gender"
+        required
+      />
+      <label class="form-check-label" for="famale">Nữ</label>
+    </div>
+    <div class="form-group">
+      <input
+        type="date"
+        name="date"
+        class="form-control mt-3 fst-italic"
+        placeholder="Ngày sinh"
+        ng-model="user.date"
+        required
+      />
+      <div class="invalid-feedback">Vui lòng nhập ngày sinh của bạn</div>
+    </div>
+    <div class="form-group">
+      <input
+        type="email"
+        name="email"
+        class="form-control mt-3 fst-italic"
+        placeholder="Email"
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+        ng-model="user.email"
+        required
+      />
+      <div
+        class="invalid-feedback"
+        ng-show="registerUserForm.email.$error.pattern || registerUserForm.email.$error.required"
+      >
+        Vui lòng nhập email hợp lệ
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        name="phone"
+        class="form-control mt-3 fst-italic"
+        placeholder="Số điện thoại"
+        pattern="(84|0[3-9])+([0-9]{8})\b"
+        ng-model="user.phone"
+        required
+      />
+      <div
+        class="invalid-feedback"
+        ng-show="registerUserForm.phone.$error.pattern || registerUserForm.phone.$error.required"
+      >
+        Vui lòng nhập số điện thoại hợp lệ
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        name="password"
+        class="form-control mt-3 fst-italic"
+        placeholder="Mật khẩu"
+        ng-model="user.password"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        required
+      />
+      <div
+        class="invalid-feedback"
+        ng-show="registerUserForm.password.$error.pattern || registerUserForm.password.$error.required"
+      >
+        Mật khẩu phải có 8 kí tự trở lên, bao gồm: 1 kí tự viết hoa, 1 kí tự
+        viết thường, 1 kí tự đặc biệt và 1 số
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        name="repassword"
+        class="form-control mt-3 fst-italic"
+        placeholder="Nhập lại mật khẩu"
+        pattern="{{user.password}}"
+        ng-model="user.repassword"
+        required
+      />
+      <div
+        class="invalid-feedback"
+        ng-show="registerUserForm.repassword.$error.pattern || registerUserForm.repassword.$error.required || user.password != user.repassword"
+      >
+        Mật khẩu không khớp
+      </div>
+    </div>
+    <div class="form-check mt-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexCheckDefault"
+        required
+      />
+      <label class="form-check ps-1" for="flexCheckDefault">
+        Đồng ý với điều khoản
+      </label>
+      <div class="invalid-feedback">Bạn cần đồng ý với điều khoản.</div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 rounded-pill mt-3">
+      Đăng kí
+    </button>
+  </form>
+
+  <p class="mt-3 mb-0">
+    Bạn đã có tài khoản? <a href="#!/login" class="link-danger">Đăng nhập</a>
+  </p>
+</section>
+<script>
+  (() => {
+    "use strict";
+
+    const forms = document.querySelectorAll(".needs-validation");
+
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>

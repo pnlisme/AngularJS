@@ -1,0 +1,445 @@
+<section ng-include="'views/containers/clients/bottombar.html'"></section>
+<!-- BreadCrumb -->
+<section class="container-xxl product-breadcrumb">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb m-0 py-2">
+      <li class="breadcrumb-item">
+        <a href="#!/home" class="text-black text-decoration-none">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <a href="#" class="text-black text-decoration-none"
+          >Giỏ hàng ({{cartData.length}})</a
+        >
+      </li>
+    </ol>
+  </nav>
+</section>
+<!-- Cart -->
+<section class="cart container-xxl mb-5">
+  <div class="row">
+    <div class="col-lg-7">
+      <div class="cart-left bg-body rounded">
+        <h5 class="fw-bold p-3 border-bottom border-black">Giỏ hàng của bạn</h5>
+        <p class="px-3 m-0">
+          Bạn đang có <strong>{{quantityCart}} sản phẩm</strong> trong giỏ hàng
+        </p>
+        <div class="p-3 cart-product">
+          <ul
+            class="list-group list-group-flush border border-black rounded border-2"
+            id="cartProduct"
+          >
+            <li class="list-group-item p-3" ng-repeat="productCart in cartData">
+              <div class="row">
+                <div class="col-3 col-md-2">
+                  <a
+                    href="#!/productdetail/{{productCart.idProduct}}"
+                    class="position-relative d-block"
+                  >
+                    <img
+                      src="{{productCart.image}}"
+                      alt="{{productCart.name}}"
+                      class="img-thumbnail"
+                    />
+                    <div
+                      class="cart-product-action position-absolute top-0 start-0 translate-custom"
+                    >
+                      <button
+                        class="btn btn-dark rounded-circle"
+                        type="button"
+                        ng-click="removeCart(productCart.id)"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </a>
+                </div>
+                <div
+                  class="col-9 col-md-10 d-flex flex-column justify-content-between"
+                >
+                  <a
+                    href="#!/productdetail/{{productCart.idProduct}}"
+                    class="text-black fw-medium text-decoration-none d-block text-truncate"
+                    >{{productCart.name}}</a
+                  >
+                  <div class="hstack justify-content-between align-items-start">
+                    <div class="cart-product-info">
+                      <div class="cart-product-content">
+                        <span
+                          >{{productCart.grindLevel}} {{productCart.weight}}
+                          {{productCart.color}} {{productCart.size}}</span
+                        >
+                      </div>
+                      <div class="cart-product-price text-black-50">
+                        <strong>{{productCart.sale | number : 0}}đ</strong>
+                        <del>{{productCart.price | number : 0}}đ</del>
+                      </div>
+                    </div>
+                    <div class="cart-product-sum hstack gap-3">
+                      <div
+                        class="cart-product-quantity d-flex flex-column align-items-end"
+                      >
+                        <strong class="mb-2"
+                          >{{productCart.sale * productCart.quantity | number :
+                          0}}đ</strong
+                        >
+                        <div class="input-group input-group-sm">
+                          <button
+                            class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                            type="button"
+                            ng-click="minusCart(productCart.id)"
+                            ng-disabled="prevendAction"
+                          >
+                            <i class="fa-solid fa-minus"></i>
+                          </button>
+                          <button
+                            class="form-control text-center border border-secondary fw-bold px-3"
+                          >
+                            {{productCart.quantity}}
+                          </button>
+                          <button
+                            class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                            type="button"
+                            ng-click="plusCart(productCart.id)
+                          "
+                            ng-disabled="prevendAction"
+                          >
+                            <i class="fa-solid fa-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cart-form bg-body mt-3">
+        <h5 class="fw-bold p-3 border-bottom border-black">
+          Thông tin giao hàng
+        </h5>
+        <div class="p-3">
+          <span class="mb-3 d-block" ng-show="!user"
+            >Bạn đã có tài khoản?
+            <a href="#!/login" class="link-dark">Đăng nhập</a></span
+          >
+          <form name="formInfoOrder" validation>
+            <input
+              type="text"
+              class="form-control mb-3"
+              value="{{user.lastname && user.firstname ? user.lastname + ' ' + user.firstname : ''}}"
+              ng-disabled="user.lastname && user.firstname"
+              ng-model="order.fullname"
+              placeholder="Họ và tên"
+            />
+            <div class="row form-group">
+              <div class="col-lg-8">
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  value="{{user.email}}"
+                  ng-disabled="user.email"
+                  ng-model="order.email"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="col-lg-4">
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  placeholder="Số điện thoại"
+                  value="{{user.phone}}"
+                  ng-model="order.phone"
+                  ng-disabled="user.phone"
+                />
+              </div>
+            </div>
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Địa chỉ"
+              ng-model="order.address"
+            />
+          </form>
+          <p class="fw-medium">Phương thức thanh toán</p>
+          <div class="payment">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                value="received"
+                ng-model="order.paymentMethod"
+                name="paymentMethod"
+                id="paymentMethod1"
+                checked
+              />
+              <label class="form-check-label" for="paymentMethod1">
+                Thanh toán khi nhận hàng
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                value="transfer"
+                ng-model="order.paymentMethod"
+                name="paymentMethod"
+                id="paymentMethod2"
+              />
+              <label class="form-check-label" for="paymentMethod2">
+                Thanh toán chuyển khoản
+              </label>
+            </div>
+            <div class="d-none paymentMethod-qr row mt-3">
+              <div class="col-6">
+                <div class="ratio ratio-1x1">
+                  <img
+                    src="/images/payment/z5269195610760_6c7870ae22664415ea37430b81d259fb.jpg"
+                    alt=""
+                    class="img-thumbnail"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="ratio ratio-1x1">
+                  <img
+                    src="/images/payment/z5269195791143_04ae2548865925dea8c360ea0b5de1b7.jpg"
+                    alt=""
+                    class="img-thumbnail"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="cart-right position-sticky">
+        <!-- Alert -->
+        <div class="position-relative w-100">
+          <div
+            class="alert alert-danger fade show wow backInRight position-absolute top-0 end-0 mx-3"
+            role="alert"
+            ng-show="errorVoucher != ''"
+          >
+            <strong>{{errorVoucher}}</strong>
+          </div>
+          <div
+            class="alert alert-success fade show wow backInRight position-absolute top-0 end-0 mx-3"
+            role="alert"
+            ng-show="successVoucher != ''"
+          >
+            <strong>{{successVoucher}}</strong>
+          </div>
+        </div>
+        <div class="bg-body rounded">
+          <h5 class="fw-bold p-3 border-bottom border-black">
+            Thông tin đơn hàng
+          </h5>
+          <div class="cart-choose m-3 p-2 bg-light">
+            <div class="cart-time hstack justify-content-between">
+              <div class="cart-time-left">
+                <p class="m-0">THỜI GIAN GIAO HÀNG</p>
+                <span class="fw-bold"
+                  ><i class="fa-regular fa-clock"></i> Chọn thời gian</span
+                >
+              </div>
+              <div class="cart-time-right">
+                <div class="form-check fw-medium">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="cartTime"
+                    value="now"
+                    ng-model="order.cartTime"
+                    id="cartTime1"
+                    checked
+                  />
+                  <label class="form-check-label" for="cartTime1">
+                    Giao khi có hàng
+                  </label>
+                </div>
+                <div class="form-check fw-medium">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="cartTime"
+                    value="today"
+                    ng-model="order.cartTime"
+                    id="cartTime2"
+                  />
+                  <label class="form-check-label" for="cartTime2">
+                    Chọn thời gian
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="cartTime-show row g-2 border-top mt-2 d-none">
+              <div class="col-6">
+                <select class="form-select" ng-model="order.cartTime">
+                  <option value="today">Hôm nay</option>
+                  <option value="tomorrow">Ngày mai</option>
+                </select>
+              </div>
+              <div class="col-6" ng-init="order.cartSubTime = 'morning'">
+                <select class="form-select" ng-model="order.cartSubTime">
+                  <option value="morning">8:00 - 12:00</option>
+                  <option value="afternoon">13:00 - 17:00</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-3 pt-0 hstack justify-content-between align-items-center border-bottom gap-4"
+          >
+            <input
+              type=" text"
+              class="form-control-sm border flex-grow-1"
+              placeholder="Mã giảm giá"
+              ng-model="voucherCode"
+            />
+            <button
+              class="btn btn-sm btn-primary"
+              ng-click="applyVoucher(voucherCode)"
+            >
+              Áp dụng
+            </button>
+          </div>
+
+          <div
+            class="p-3 hstack justify-content-between align-items-center cart-sum border-bottom"
+          >
+            <h6 class="fw-bold m-0">Tổng tiền:</h6>
+            <strong class="fs-5">{{totalCart | number : 0}}đ</strong>
+          </div>
+          <div class="cart-sum p-3 d-grid">
+            <button class="btn text-white fw-bold" ng-click="checkout()">
+              Thanh toán
+            </button>
+          </div>
+        </div>
+        <!-- Home Coupon -->
+        <!-- Alert -->
+        <div class="position-relative w-100">
+          <div
+            class="alert alert-success fade show wow backInRight position-absolute top-0 end-0 mx-3"
+            role="alert"
+            ng-show="copySuccess"
+          >
+            <strong>Sao chép mã thành công</strong>
+          </div>
+        </div>
+        <section class="bg-body p-3 mt-3 rounded">
+          <p class="fw-bold">Khuyến mãi dành cho bạn</p>
+          <div class="container-xxl">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-12">
+                <div
+                  class="row align-items-center home-coupon rounded-3 border border-1"
+                  ng-repeat="voucher in vouchers"
+                >
+                  <div class="col-3">
+                    <img
+                      src="{{voucher.image}}"
+                      alt="coupon_img.webp"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="col-9 p-3 coupon-right">
+                    <div
+                      class="coupon-title hstack justify-content-between align-items-start"
+                    >
+                      <div class="coupon-title-text">
+                        <span class="m-0 fw-bold d-block lh-1"
+                          >Voucher giảm giá</span
+                        >
+                        <span class="lh-1"
+                          >Đơn hàng từ {{voucher.price | number : 0}}</span
+                        >
+                      </div>
+                      <i
+                        class="fa-solid fa-circle-info fa-2x"
+                        data-bs-toggle="popover"
+                        data-bs-placement="top"
+                        data-bs-html="true"
+                        data-bs-content='<div class="pp-cp-title py-2 bg-secondary rounded">
+                                      <div class="row">
+                                        <div class="col-5"><span class="text-grap-50">Mã:</span></div>
+                                        <div class="col-7"><strong class="text-uppercase">Wego10</strong></div>
+                                      </div>
+                                    </div>
+                                    <div class="pp-cp-date py-2">
+                                      <div class="row">
+                                        <div class="col-5"><span class="text-grap-50">Hạn sử dụng:</span></div>
+                                      <div class="col-7"><span class="">31/3/2023</span></div>
+                                      </div>
+                                    </div>
+                                    <div class="pp-cp-func py-2 bg-secondary rounded">
+                                      <ul>
+                                        <li>Dành cho đơn hàng từ 500k</li>
+                                        <li>Mỗi khách hàng được sử dụng tối đa 3 lần.</li>
+                                        <li>Sao chép mã và nhập mã khuyến mãi ở trang thanh toán</li>
+                                      </ul>
+                                    </div>'
+                      ></i>
+                    </div>
+                    <div
+                      class="coupon-group d-flex justify-content-between align-items-end"
+                    >
+                      <div class="coupon-content mt-2">
+                        <span class="m-0 d-block lh-base"
+                          >Nhập mã: <strong>{{voucher.code}}</strong></span
+                        >
+                        <span class="m-0 coupon-shelf lh-1"
+                          >HSD: {{voucher.endDate | date : 'dd/MM/yyyy'}}</span
+                        >
+                      </div>
+                      <button
+                        class="btn btn-primary rounded-pill fw-medium border-0 p-0 lh-base px-2"
+                        ng-click="copyToClipboard(voucher.code)"
+                      >
+                        Sao chép mã
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    // Payment
+    $("#paymentMethod1").on("change", function () {
+      if (this.checked) {
+        $(".paymentMethod-qr").addClass("d-none");
+        $(".paymentMethod-qr").removeClass("d-flex");
+      }
+    });
+    $("#paymentMethod2").on("change", function () {
+      if (this.checked) {
+        $(".paymentMethod-qr").removeClass("d-none");
+        $(".paymentMethod-qr").addClass("d-flex");
+      }
+    });
+    // Time
+    $("#cartTime1").on("change", function () {
+      if (this.checked) {
+        $(".cartTime-show").addClass("d-none");
+        $(".cartTime-show").removeClass("d-flex");
+      }
+    });
+    $("#cartTime2").on("change", function () {
+      if (this.checked) {
+        $(".cartTime-show").removeClass("d-none");
+        $(".cartTime-show").addClass("d-flex");
+      }
+    });
+  });
+</script>

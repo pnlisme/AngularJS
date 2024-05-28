@@ -1,0 +1,228 @@
+<link rel="stylesheet" href="css/owl.carousel.css" />
+<!-- Modal Product -->
+<div
+  class="modal fade product-modal"
+  id="productDetailModal"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="productDetailModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fw-bold" id="productDetailModalLabel">
+          Wego Coffee
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body product-modal-base">
+        <div class="row g-3">
+          <div class="col-12 col-lg-6">
+            <div class="product-modal vstack">
+              <div
+                class="product-modal-base-carousel border rounded overflow-hidden product-modal-imgMain"
+              >
+                <div>
+                  <img
+                    src="{{productDetailModal.imageMain}}"
+                    alt="{{productDetailModal.imageMain}}"
+                    class="img-fluid rounded object-fit-cover"
+                  />
+                </div>
+              </div>
+              <div class="owl-thumbs d-flex justify-content-center mt-3">
+                <div
+                  class="owl-thumb border img-fluid ratio ratio-1x1 rounded overflow-hidden mx-1"
+                  ng-click="changeImage($index)"
+                  ng-repeat="image in productDetailModal.images"
+                >
+                  <img
+                    src="{{image}}"
+                    alt="{{image}}"
+                    class="img-fluid object-fit-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="product-modal-content">
+              <h6 class="fw-bold">{{productDetailModal.name}}</h6>
+              <p class="product-modal-subtitle">
+                Tình trạng:
+                <strong
+                  >{{productDetailModal.quantity > 0 ? 'Còn hàng' : 'Hết
+                  hàng'}}</strong
+                >
+                | Thương hiệu:
+                <strong>{{productDetailModal.brandName}}</strong>
+              </p>
+              <div class="hstack justify-content-between align-items-end mb-3">
+                <span class="fs-6 fw-bold">Giá:</span>
+                <p class="m-0 hstack align-items-center gap-2">
+                  <strong class="fs-5"
+                    >{{productDetailModal.sale | number : 0}}đ </strong
+                  ><del
+                    class="fs-5"
+                    ng-if="productDetailModal.price > productDetailModal.sale"
+                    >{{productDetailModal.price | number : 0}}đ</del
+                  >
+                  <span
+                    class="badge"
+                    ng-if="productDetailModal.price > productDetailModal.sale"
+                    >-{{(productDetailModal.price - productDetailModal.sale) /
+                    productDetailModal.price * 100 | number : 0}}%</span
+                  >
+                </p>
+              </div>
+              <div
+                class="hstack justify-content-between align-items-end mb-3"
+                ng-show="productDetailModal.grindLevel != null"
+              >
+                <span class="fs-6 fw-bold">Mức độ xay:</span>
+                <select
+                  class="form-select form-select-sm"
+                  ng-model="cart.grindLevel"
+                >
+                  <option
+                    value="{{grindLevel}}"
+                    ng-repeat="grindLevel in productDetailModal.grindLevel"
+                  >
+                    {{grindLevel}}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="hstack justify-content-between align-items-end mb-3"
+                ng-show="productDetailModal.weight != null"
+              >
+                <span class="fs-6 fw-bold">Khối lượng:</span>
+                <select
+                  class="form-select form-select-sm"
+                  ng-model="cart.weight"
+                >
+                  <option
+                    value="{{weight}}"
+                    ng-repeat="weight in productDetailModal.weight"
+                  >
+                    {{weight}}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="hstack justify-content-between align-items-end mb-3"
+                ng-show="productDetailModal.color != null"
+              >
+                <span class="fs-6 fw-bold">Màu sắc:</span>
+                <select
+                  class="form-select form-select-sm"
+                  ng-model="cart.color"
+                >
+                  <option
+                    value="{{color}}"
+                    ng-repeat="color in productDetailModal.color"
+                  >
+                    {{color}}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="hstack justify-content-between align-items-end mb-3"
+                ng-show="productDetailModal.size != null"
+              >
+                <span class="fs-6 fw-bold">Kích thước:</span>
+                <select class="form-select form-select-sm" ng-model="cart.size">
+                  <option
+                    value="{{size}}"
+                    ng-repeat="size in productDetailModal.size"
+                  >
+                    {{size}}
+                  </option>
+                </select>
+              </div>
+              <div class="hstack justify-content-between align-items-end mb-3">
+                <span class="fs-6 fw-bold">Số lượng:</span>
+                <div
+                  class="input-group input-group-sm"
+                  style="max-width: 140px"
+                  ng-init="cart.quantity = 1"
+                >
+                  <button
+                    class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                    type="button"
+                    ng-click="cart.quantity = cart.quantity == 1 ? 1 : cart.quantity - 1"
+                  >
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <input
+                    type="number"
+                    min="1"
+                    ng-model="cart.quantity"
+                    class="form-control text-center border border-secondary fw-bold"
+                  />
+                  <button
+                    class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                    type="button"
+                    ng-click="cart.quantity =  cart.quantity + 1"
+                  >
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <div class="d-grip">
+                <button
+                  class="btn btn-primary rounded-pill fw-bolder w-100"
+                  type="button"
+                  ng-click="addToCart()"
+                  data-bs-dismiss="modal"
+                >
+                  Thêm vào giỏ hàng
+                </button>
+              </div>
+            </div>
+            <div class="share mt-3 fs-6 hstack gap-2">
+              <span> Chia sẻ: </span>
+              <a
+                href="#"
+                class="text-decoration-none rounded-circle icon icon-fb"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="text-decoration-none rounded-circle icon icon-fb-ms"
+                ><i class="fa-brands fa-facebook-messenger"></i
+              ></a>
+              <a
+                href="#"
+                class="text-decoration-none rounded-circle icon icon-tw"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="text-decoration-none rounded-circle icon icon-pt"
+                ><i class="fa-brands fa-pinterest"></i
+              ></a>
+            </div>
+            <a
+              href="#"
+              class="text-black text-center d-block mt-3"
+              data-bs-dismiss="modal"
+              ng-click="goToProductDetail(productDetailModal.id)"
+            >
+              Xem chi tiết sản phẩm
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wego Coffee Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/fontawesome.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  </head>
+  <body class="bg-secondary">
+    <!-- Topbar -->
+    <section class="topbar">
+      <div class="topbar-header owl-carousel owl-theme owl-loaded p-1 bg-white">
+        <div class="owl-stage-outer text-center small">
+          <div class="owl-stage">
+            <div class="owl-item">
+              <p class="m-0">
+                Miễn phí vận chuyển với đơn hàng trên<strong> 500k</strong>
+              </p>
+            </div>
+            <div class="owl-item">
+              <p class="m-0">
+                Khuyến mãi khủng <strong>35%</strong> tất cả sản phẩm
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Header -->
+    <section class="header-main container-fluid bg-primary">
+      <header class="header container">
+        <nav class="navbar navbar-expand-lg nav-light">
+          <div class="container-fluid">
+            <div>
+              <!-- Header Button -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarHeader"
+                aria-controls="navbarHeader"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fa-solid fa-bars-staggered"></i>
+              </button>
+              <!-- Header Logo -->
+              <a class="navbar-brand" href="#">
+                <img src="/images/logo.png" alt="logo.png" class="img-fuild" />
+              </a>
+            </div>
+            <!-- Header Icon -->
+            <div class="header-icon d-flex order-lg-1 gap-1">
+              <div class="search-container">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#searchModal"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <div class="user-container">
+                <a href="#" class="btn btn-primary"
+                  ><i class="fa-regular fa-user"></i
+                ></a>
+              </div>
+              <div class="cart-container">
+                <button
+                  type="button"
+                  class="btn btn-primary position-relative"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasCart"
+                  aria-controls="offcanvasCart"
+                >
+                  <i class="fa-solid fa-bag-shopping fa-bounce"></i>
+                  <span
+                    class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+                  >
+                    9+
+                    <span class="visually-hidden">count product in cart</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <!-- Header Nav -->
+            <div
+              class="collapse navbar-collapse justify-content-center fw-medium order-lg-0"
+              id="navbarHeader"
+            >
+              <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-2">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Sản phẩm
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                    <li><a class="dropdown-item" href="#">Hạt Cà Phê</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Máy Pha Cà Phê</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >Công cụ pha chế thủ công
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Viên nén Cà Phê</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Tin tức
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Về cà phê</a></li>
+                    <li><a class="dropdown-item" href="#">Về ưu đãi</a></li>
+                  </ul>
+                </li>
+                <a class="nav-link" aria-current="page" href="#">Giới thiệu</a>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Offcanvas -->
+        <div
+          class="header-offcanvas offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasCart"
+          aria-labelledby="offcanvasCartLabel"
+        >
+          <div class="offcanvas-header pb-0">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasCartLabel">
+              GIỎ HÀNG
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body d-flex flex-column">
+            <div
+              class="cart-main border-top border-bottom border-black overflow-y-scroll vstack"
+            >
+              <div class="cart-product">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="cart-product-item hstack gap-3">
+                      <div class="cart-product-img">
+                        <img
+                          src="/images/products/product1_img1.webp"
+                          alt="product1"
+                          class="img-fluid img-thumbnail"
+                        />
+                      </div>
+                      <div class="cart-product-content">
+                        <div
+                          class="cart-product-top d-flex justify-content-between mb-2 gap-3 gap-sm-5"
+                        >
+                          <div class="cart-product-name">
+                            <h6 class="m-0 fw-bold">Bình Thuỷ Tinh Chemex</h6>
+                            <span class="text-black-50">Phin / 250 gram</span>
+                          </div>
+                          <div class="cart-product-action">
+                            <button
+                              class="btn btn-dark rounded-circle"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card-product-bottom hstack gap-sm-5">
+                          <div class="input-group input-group-sm">
+                            <button
+                              class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <input
+                              type="number"
+                              class="form-control text-center border border-secondary fw-bold"
+                              value="2"
+                            />
+                            <button
+                              class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-plus"></i>
+                            </button>
+                          </div>
+                          <div class="price vstack align-items-end">
+                            <strong>160,000đ</strong>
+                            <del class="fw-medium text-black-50">200,000đ</del>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="cart-product-item hstack gap-3">
+                      <div class="cart-product-img">
+                        <img
+                          src="/images/bestseller/product1_img1.webp"
+                          alt="product1"
+                          class="img-fluid img-thumbnail"
+                        />
+                      </div>
+                      <div class="cart-product-content">
+                        <div
+                          class="cart-product-top d-flex justify-content-between mb-2 gap-3 gap-sm-5"
+                        >
+                          <div class="cart-product-name">
+                            <h6 class="m-0 fw-bold">
+                              Hạt cà phê - BLUE - Single Origin
+                            </h6>
+                            <span class="text-black-50">Phin / 250 gram</span>
+                          </div>
+                          <div class="cart-product-action">
+                            <button
+                              class="btn btn-dark rounded-circle"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card-product-bottom hstack gap-sm-5">
+                          <div class="input-group input-group-sm">
+                            <button
+                              class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <input
+                              type="number"
+                              class="form-control text-center border border-secondary fw-bold"
+                              value="1"
+                            />
+                            <button
+                              class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-plus"></i>
+                            </button>
+                          </div>
+                          <div class="price vstack align-items-end">
+                            <strong>160,000đ</strong>
+                            <del class="fw-medium text-black-50">200,000đ</del>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="cart-product-item hstack gap-3">
+                      <div class="cart-product-img">
+                        <img
+                          src="/images/bestseller/product1_img1.webp"
+                          alt="product1"
+                          class="img-fluid img-thumbnail"
+                        />
+                      </div>
+                      <div class="cart-product-content">
+                        <div
+                          class="cart-product-top d-flex justify-content-between mb-2 gap-3 gap-sm-5"
+                        >
+                          <div class="cart-product-name">
+                            <h6 class="m-0 fw-bold">
+                              TEST - Clone Lorem ipsum dolor sit, amet
+                              consectetur adipisicing elit. Assumenda,
+                              praesentium? Quis et quidem porro veritatis optio
+                              quam maiores molestias placeat?
+                            </h6>
+                            <span class="text-black-50">Phin / 250 gram</span>
+                          </div>
+                          <div class="cart-product-action">
+                            <button
+                              class="btn btn-dark rounded-circle"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card-product-bottom hstack gap-sm-5">
+                          <div class="input-group input-group-sm">
+                            <button
+                              class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <input
+                              type="number"
+                              class="form-control text-center border border-secondary fw-bold"
+                              value="1"
+                            />
+                            <button
+                              class="btn btn-outline-secondary text-bg-secondary input-group-text"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-plus"></i>
+                            </button>
+                          </div>
+                          <div class="price vstack align-items-end">
+                            <strong>160,000đ</strong>
+                            <del class="fw-medium text-black-50">200,000đ</del>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="cart-none vstack gap-4 align-items-center justify-content-center d-none"
+              >
+                <i class="fa-solid fa-cart-shopping fa-shake fa-5x"></i>
+                <p class="text-center fw-medium text-black-50">
+                  Hiện chưa có sản phẩm nào
+                </p>
+              </div>
+            </div>
+            <div class="cart-bottom mt-4">
+              <div class="cart-total">
+                <p class="mb-3 hstack justify-content-between">
+                  Tổng cộng: <strong>1,000,000đ</strong>
+                </p>
+              </div>
+              <div class="cart-action d-grid">
+                <a href="#" class="btn btn-primary rounded-pill fw-medium"
+                  >Xem giỏ hàng</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+    <!-- Header // modal search  -->
+    <div
+      class="modal fade"
+      id="searchModal"
+      tabindex="-1"
+      aria-labelledby="searchModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="searchModalLabel">Tìm sản phẩm</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="py-1 p-lg-3">
+              <div class="input-group">
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Tìm kiếm sản phẩm"
+                  aria-label="Search"
+                  aria-describedby="button-addon2"
+                />
+                <button class="btn btn-dark" type="button" id="button-addon2">
+                  <i class="fa-solid fa-search"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottombar -->
+    <section class="bottombar container-fluid text-bg-light">
+      <div class="container py-3">
+        <div class="owl-carousel owl-theme owl-loaded header-bottombar">
+          <div class="owl-stage-outer">
+            <div class="owl-stage">
+              <div class="owl-item">
+                <div
+                  class="bottombar-block hstack gap-2 justify-content-center"
+                >
+                  <i class="fa-solid fa-medal fs-5"></i>
+                  <p class="m-0">Đảm bảo chất lượng</p>
+                </div>
+              </div>
+              <div class="owl-item">
+                <div
+                  class="bottombar-block hstack gap-2 justify-content-center"
+                >
+                  <i class="fa-solid fa-truck fs-5"></i>
+                  <p class="m-0">Miễn phí vận chuyển</p>
+                </div>
+              </div>
+              <div class="owl-item">
+                <div
+                  class="bottombar-block hstack gap-2 justify-content-center"
+                >
+                  <i class="fa-solid fa-circle-check fs-5"></i>
+                  <p class="m-0">Kiểm tra nhận hàng</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- BreadCrumb -->
+    <section class="container-xxl product-breadcrumb">
+      <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb m-0 py-2">
+          <li class="breadcrumb-item">
+            <a href="#" class="text-black text-decoration-none">Trang chủ</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Quên mật khẩu
+          </li>
+        </ol>
+      </nav>
+    </section>
+    <!-- Login -->
+    <section class="login container rounded bg-body mb-5 p-4 p-sm-5">
+      <form action="">
+        <h2 class="fw-bold text-center py-3">Quên mật khẩu</h2>
+        <input
+          type="mail"
+          class="form-control mb-3 fst-italic"
+          placeholder="Email"
+        />
+        <button class="btn btn-primary w-100 rounded-pill mb-3">
+          Gửi email
+        </button>
+      </form>
+      <p class="mb-1">
+        Bạn chưa có tài khoản? <a href="#" class="link-danger">Đăng kí</a>
+      </p>
+      <p class="mb-0">
+        Bạn đã có tài khoản? <a href="#" class="link-danger">Đăng nhập</a>
+      </p>
+    </section>
+    <!-- Footer -->
+    <!-- Footer New Letter -->
+    <section class="footer-container container-fluid bg-black text-light">
+      <footer class="footer container py-4">
+        <div
+          class="footer-top hstack justify-content-between align-items-start"
+        >
+          <div
+            class="footer-top-left d-flex flex-xl-row flex-column align-items-start gap-xl-3 gap-2"
+          >
+            <h4 class="fw-bold fs-5">Đăng ký nhận bản tin</h4>
+            <form class="d-flex gap-3">
+              <div class="form-group position-relative">
+                <input
+                  type="text"
+                  class="form-control rounded-pill w-100"
+                  placeholder="Nhập email của bạn"
+                />
+                <i class="fa-regular fa-envelope position-absolute"></i>
+              </div>
+              <button class="btn btn-primary rounded-pill border-0 w-100 px-4">
+                Đăng ký
+              </button>
+            </form>
+          </div>
+          <div
+            class="footer-top-right d-md-flex flex-xl-row flex-column align-items-end gap-xl-3 gap-2 d-none"
+          >
+            <h4 class="fw-bold fs-4">Kết nối với chúng tôi</h4>
+            <div class="socials">
+              <a href="#" class="btn btn-primary rounded-circle me-2"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="btn btn-primary rounded-circle me-2"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <!-- Footer Bottom -->
+    <section
+      class="footer-container container-fluid text-bg-dark py-3 d-block d-xl-none"
+    >
+      <div class="footer-bottom">
+        <div
+          class="accordion"
+          id="accordionPanelsStayOpenExample"
+          data-bs-theme="dark"
+        >
+          <div class="accordion-item bg-black border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed fw-bold text-bg-dark rounded-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseWego"
+                aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseWego"
+              >
+                Về Wego
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseWego"
+              class="accordion-collapse collapse"
+            >
+              <div class="accordion-body rounded-0">
+                <p class="m-0 lh-base mb-1">Công ty cổ phần Wego Coffee</p>
+                <p class="m-0 lh-base mb-1">
+                  <i class="fa-solid fa-location-dot"></i> 222 Điện Biên Phủ,
+                  phường Võ Thị Sáu, Quận 3, TP. HCM
+                </p>
+                <p class="m-0 lh-base mb-1">
+                  <i class="fa-solid fa-envelope"></i>
+                  wegocoffeehelp@gmail.com
+                </p>
+                <img
+                  class="img-fluid mt-2"
+                  src="/images/footer_logobct_img.webp"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item bg-black border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed fw-bold text-bg-dark rounded-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseCustomer"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseCustomer"
+              >
+                Hỗ trợ khách hàng
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseCustomer"
+              class="accordion-collapse collapse"
+            >
+              <div class="accordion-body rounded-0">
+                <ul>
+                  <li><a href="#">Liên hệ</a></li>
+                  <li><a href="#">Hệ thống cửa hàng</a></li>
+                  <li><a href="#">Câu hỏi thường gặp</a></li>
+                  <li><a href="#">Hướng dẫn mua hàng</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item bg-black border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed fw-bold text-bg-dark rounded-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapsePolicy"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapsePolicy"
+              >
+                Chính sách
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapsePolicy"
+              class="accordion-collapse collapse"
+            >
+              <div class="accordion-body rounded-0">
+                <ul>
+                  <li><a href="#">Liên hệ</a></li>
+                  <li><a href="#">Hệ thống cửa hàng</a></li>
+                  <li><a href="#">Câu hỏi thường gặp</a></li>
+                  <li><a href="#">Hướng dẫn mua hàng</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item bg-black border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed fw-bold text-bg-dark rounded-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseLink"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseLink"
+              >
+                Liên kết
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseLink"
+              class="accordion-collapse collapse"
+            >
+              <div class="accordion-body rounded-0">
+                <ul>
+                  <li><a href="#">Điều khoản dịch vụ</a></li>
+                  <li><a href="#">Điều khoản bảo mật</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer XL -->
+    <section
+      class="footer-container container-fluid text-bg-dark py-5 d-none d-xl-block"
+    >
+      <div class="footer-xl container">
+        <div class="row">
+          <div class="col-3">
+            <h5 class="fw-bold mb-4">Về Wego</h5>
+            <p class="m-0 lh-base mb-1">Công ty cổ phần Wego Coffee</p>
+            <p class="m-0 lh-base mb-1">
+              <i class="fa-solid fa-location-dot"></i> 222 Điện Biên Phủ, phường
+              Võ Thị Sáu, Quận 3, TP. HCM
+            </p>
+            <p class="m-0 lh-base mb-1">
+              <i class="fa-solid fa-envelope"></i> wegocoffeehelp@gmail.com
+            </p>
+            <img
+              class="img-fluid mt-2"
+              src="/images/footer_logobct_img.webp"
+              alt=""
+            />
+          </div>
+          <div class="col-3">
+            <h5 class="fw-bold mb-4">Hỗ trợ khách hàng</h5>
+            <ul>
+              <li><a href="#">Liên hệ</a></li>
+              <li><a href="#">Hệ thống cửa hàng</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="fw-bold mb-4">Chính sách</h5>
+            <ul>
+              <li><a href="#">Liên hệ</a></li>
+              <li><a href="#">Hệ thống cửa hàng</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="fw-bold mb-4">Liên kết</h5>
+            <ul>
+              <li><a href="#">Điều khoản dịch vụ</a></li>
+              <li><a href="#">Điều khoản bảo mật</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer Copyright -->
+    <section class="footer-container container-fluid bg-black py-4">
+      <small class="text-center text-white d-block">
+        © 2021 Wego Coffee. All rights reserved.
+      </small>
+    </section>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
