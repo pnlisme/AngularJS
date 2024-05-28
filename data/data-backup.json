@@ -1,0 +1,736 @@
+{
+  "brands": [
+    {
+      "id": "1",
+      "name": "Wego Coffee",
+      "value": "wego"
+    },
+    {
+      "id": "2",
+      "name": "Cafede Kona",
+      "value": "cafede"
+    },
+    {
+      "id": "3",
+      "name": "Morning",
+      "value": "morning"
+    },
+    {
+      "id": "4",
+      "name": "Brewico",
+      "value": "brewico"
+    }
+  ],
+  "categoriesProduct": [
+    {
+      "id": "1",
+      "name": "Hạt cà phê",
+      "value": "bean",
+      "imageMain": "images/categorybanner_1_img.webp",
+      "imageSub": "images/categorize_1_img.webp"
+    },
+    {
+      "id": "2",
+      "name": "Máy pha cà phê",
+      "value": "machine",
+      "imageMain": "images/categorybanner_2_img.webp",
+      "imageSub": "images/categorize_2_img.webp"
+    },
+    {
+      "id": "3",
+      "name": "Viên nén cà phê",
+      "value": "capsule",
+      "imageMain": "images/categorybanner_3_img.webp",
+      "imageSub": "images/categorize_3_img.webp"
+    },
+    {
+      "id": "4",
+      "name": "Công cụ pha chế",
+      "value": "tool",
+      "imageMain": "images/categorybanner_4_img.webp",
+      "imageSub": "images/categorize_4_img.webp"
+    },
+    {
+      "id": "5",
+      "name": "Bundie",
+      "value": "all",
+      "imageSub": "images/categorize_5_img.webp"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Hạt Cà Phê - BLUE - Single Origin",
+      "sale": 160000,
+      "price": 200000,
+      "images": [
+        "images/products/product1_img1.webp",
+        "images/products/product1_img2.webp",
+        "images/products/product1_img3.webp",
+        "images/products/product1_img4.webp",
+        "images/products/product1_img5.webp"
+      ],
+      "grindLevel": ["Phin", "Espresso", "Pour Over", "Nguyên hạt"],
+      "weight": ["250g"],
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div>Hương vị truyền thống kết hợp với phương pháp chế biến Winey Natural,<em>WEGO Single Origin BLUE </em>- 100% Robusta&nbsp;của Việt Nam với hương vị Chocolate đắng nhẹ đặc trưng, thơm ngầy ngậy mùi hạnh nhân và hạt dẻ nướng.</div><div><strong>Tỉ Lệ</strong>: 100% Robusta</div><div><strong>Process:&nbsp;</strong>Winey Natural</div><div><strong>Độ Rang</strong>: Medium</div><div><strong>Taste Note</strong>:&nbsp;Creamy Body. Honey Soft. Smooth. Milky</div><div><strong>Vùng Trồng</strong>:&nbsp;Bảo Lâm, Lâm Đồng</div><div><strong>Ngon Nhất Khi Dùng</strong>:&nbsp;Cold Brew - Espresso</div><div><strong>HSD</strong>: 1 Năm kể&nbsp;từ ngày rang</div><div><strong>HDSD</strong>: Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp và đậy kín sau khi sử dụng.</div><div>&nbsp;</div>",
+        "images": [
+          "images/products/product_des_start.webp",
+          "images/products/product1_des1.webp",
+          "images/products/product1_des2.webp",
+          "images/products/product1_des3.webp",
+          "images/products/product_des_end.webp"
+        ]
+      },
+      "promotion": 0,
+      "best": 1,
+      "brandValue": "wego",
+      "brandName": "Wego Coffee",
+      "categoryValue": "bean",
+      "categoryName": "Hạt cà phê"
+    },
+    {
+      "id": "2",
+      "name": "Hạt cà phê - BROWN - Single Origin",
+      "sale": 88000,
+      "price": 110000,
+      "images": [
+        "images/products/product2_img1.webp",
+        "images/products/product2_img2.webp",
+        "images/products/product2_img3.webp",
+        "images/products/product2_img4.webp",
+        "images/products/product2_img5.webp"
+      ],
+      "grindLevel": ["Phin", "Espresso", "Pour Over", "Nguyên hạt"],
+      "weight": ["250g"],
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div>Đặc trưng của hạt cà phê Robusta ở đây đó là tuy nhỏ nhưng lại được bao bọcbởi một lớp thịt mọng và phương pháp chế biến Honey. Vì thế mà<em>WEGO Single Origin BROWN</em> dù có đậm đà, dày dặn nhưng vẫn có chút ngọtngào không khác gì khi nếm thử Chocolate.</div><div>&nbsp;<div><div><strong>Tỉ Lệ</strong>: 100% Robusta</div><div><strong>Độ Rang</strong>: Medium</div><div><strong>Taste Note</strong>:&nbsp;Caramel. Chocolate. Deep After-taste</div><div><strong>Process</strong>: Honey</div><div><strong>Vùng Trồng</strong>:&nbsp;Thuận Hà, Đăk Song, Đăk Nông</div><div><strong>Ngon Nhất Khi Dùng</strong>:&nbsp;Cà Phê Phin&nbsp;</div><div><strong>HSD</strong>: 1 Năm kể&nbsp;từ ngày rang</div><div><strong>HDSD</strong>: Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp vàđậy kín sau khi sử dụng.</div><div>&nbsp;</div></div></div>",
+        "images": [
+          "images/products/product_des_start.webp",
+          "images/products/product2_des1.webp",
+          "images/products/product2_des2.webp",
+          "images/products/product2_des3.webp",
+          "images/products/product_des_end.webp"
+        ]
+      },
+      "promotion": 0,
+      "best": 1,
+      "brandValue": "wego",
+      "brandName": "Wego Coffee",
+      "categoryValue": "bean",
+      "categoryName": "Hạt cà phê"
+    },
+    {
+      "id": "3",
+      "name": "Hạt cà phê - GREEN - Single Origin",
+      "sale": 144000,
+      "price": 180000,
+      "images": [
+        "images/products/product3_img1.webp",
+        "images/products/product3_img2.webp",
+        "images/products/product3_img3.webp"
+      ],
+      "grindLevel": ["Phin", "Espresso", "Pour Over", "Nguyên hạt"],
+      "weight": ["250g"],
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div>Là sự kết hợp của những giống Arabica nổi tiếng từ Lâm Đồng,<em>WEGO House Blend GREEN&nbsp;</em>với phương pháp chế biến Washed mang đếnsự mạnh mẽ, hoà quyện vị chua chua ngọt ngọt đa dạng của nhiều loại quả mọngvà&nbsp;không kém phần cay nhè nhẹ, dịu dàng như rượu vang hoa quả.</div><div>&nbsp;<div><div><strong>Tỉ Lệ</strong>: 100% Arabica</div><div><strong>Độ Rang</strong>: Light Medium</div><div><strong>Process</strong>: Honey&nbsp;</div><div><strong>Taste Note</strong>:&nbsp;Brown Sugar, Citrus, Medium Body, SweetAfter -taste</div><div><strong>Vùng Trồng</strong>:&nbsp;Lạc Dương, Lâm Đồng</div><div><strong>Ngon Nhất Khi Dùng</strong>:&nbsp;Espresso</div><div><strong>HSD</strong>: 1 Năm kể&nbsp;từ ngày rang</div><div><strong>HDSD</strong>: Bảo quản nơi khô ráo, tránh ánh nắng trực tiếpvà&nbsp;đậy kín sau khi sử dụng.</div><div>&nbsp;</div></div></div>",
+        "images": [
+          "images/products/product_des_start.webp",
+          "images/products/product3_des1.webp",
+          "images/products/product3_des2.webp",
+          "images/products/product3_des3.webp",
+          "images/products/product_des_end.webp"
+        ]
+      },
+      "promotion": 0,
+      "best": 1,
+      "brandValue": "wego",
+      "brandName": "Wego Coffee",
+      "categoryValue": "bean",
+      "categoryName": "Hạt cà phê"
+    },
+    {
+      "id": "4",
+      "name": "Hạt cà phê - RED - Single Origin",
+      "sale": 280000,
+      "price": 350000,
+      "images": [
+        "images/products/product4_img1.webp",
+        "images/products/product4_img2.webp",
+        "images/products/product4_img3.webp",
+        "images/products/product4_img4.webp",
+        "images/products/product4_img5.webp"
+      ],
+      "grindLevel": ["Phin", "Espresso", "Pour Over", "Nguyên hạt"],
+      "weight": ["250g"],
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div>Kết hợp giữa phương pháp chế biến Washed, Natural và&nbsp;Winey Natural,<em>WEGO House Blend&nbsp;RED</em> thừa hưởng sự tối ưu của quá trình từ 'farmto cup', mang lại sự ngọt ngào của mật ong và quả mọng tươi, hậu vị cân bằngvà dày dặn.</div><div>&nbsp;</div><div><div><strong>Tỉ Lệ</strong>: Arabica Blend&nbsp;Robusta&nbsp;</div><div><strong>Độ Rang</strong>: Light Medium</div><div><strong>Taste Note</strong>:&nbsp;Berries. Fruity. Honey Balanced</div><div><strong>Process</strong>: Natural, Winey Natural</div><div><strong>Vùng Trồng</strong>:&nbsp;Kiambu, Kenya &amp; Bảo Lâm, Bảo Lộc, LâmĐồng</div><div><strong>Ngon Nhất Khi Dùng</strong>:&nbsp;Espresso - Pour over</div><div><strong>HSD</strong>:&nbsp;1 Năm kể&nbsp;từ ngày rang</div><div><strong>HDSD</strong>: Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp và đậykín sau khi sử dụng.</div></div>",
+        "images": [
+          "images/products/product_des_start.webp",
+          "images/products/product4_des1.webp",
+          "images/products/product4_des2.webp",
+          "images/products/product4_des3.webp",
+          "images/products/product_des_end.webp"
+        ]
+      },
+      "promotion": 0,
+      "best": 1,
+      "brandValue": "wego",
+      "brandName": "Wego Coffee",
+      "categoryValue": "bean",
+      "categoryName": "Hạt cà phê"
+    },
+    {
+      "id": "5",
+      "name": "Máy Pha Viên Nén Cà Phê",
+      "sale": 7500000,
+      "price": 10290000,
+      "images": [
+        "images/products/product5_img1.webp",
+        "images/products/product5_img2.webp",
+        "images/products/product5_img3.webp",
+        "images/products/product5_img4.webp",
+        "images/products/product5_img5.webp",
+        "images/products/product5_img6.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": ["Đen"],
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div> <strong>Morning Machine</strong> -&nbsp;Máy Pha Cà Phê từng đoạt giải về thiết kế mang tính tối ưu&nbsp;đang ngày một kiến tạo cuộc cách mạng hoá và sớm trở thành tiêu chuẩn về trải nghiệm cà phê tại nhà. Với các tính năng vượt trội:&nbsp; </div> <div>&nbsp;</div> <div> • Bảng điều khiển chính xác sắc thái của từng&nbsp;ly cà phê,&nbsp;tăng tối đa&nbsp;trải nghiệm hương vị. </div> <div><strong>•&nbsp;</strong>10 chế độ chiết xuất mặc định</div> <div>• Chế độ cá nhân hoá hương vị cà phê&nbsp;</div> <div>• Thiết kế nhỏ gọn tiết kiệm không gian sử dụng</div> <div>• Cảnh báo thông minh thông số chiết xuất</div> <div> • Phù hợp với đa số các loại viên nén cà phê trên thị trường<br /><br />&nbsp; </div>"
+      },
+      "promotion": 0,
+      "best": 0,
+      "brandValue": "morning",
+      "brandName": "Morning",
+      "categoryValue": "machine",
+      "categoryName": "Máy pha cà phê"
+    },
+    {
+      "id": "6",
+      "name": "Máy Pha Cafe Tự Động Brewico C11",
+      "sale": 26070000,
+      "price": 0,
+      "images": [
+        "images/products/product6_img1.webp",
+        "images/products/product6_img2.webp",
+        "images/products/product6_img3.webp",
+        "images/products/product6_img4.webp",
+        "images/products/product6_img5.webp",
+        "images/products/product6_img6.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 0,
+      "best": 0,
+      "brandValue": "brewico",
+      "brandName": "Brewico",
+      "categoryValue": "machine",
+      "categoryName": "Máy pha cà phê"
+    },
+    {
+      "id": "7",
+      "name": "Viên nén cà phê - Brown - Robusta Honey",
+      "sale": 170000,
+      "price": 200000,
+      "images": [
+        "images/products/product7_img1.webp",
+        "images/products/product7_img2.webp",
+        "images/products/product7_img3.webp",
+        "images/products/product7_img4.webp",
+        "images/products/product7_img5.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div><strong>Tỉ Lệ</strong>: 100% Robusta&nbsp;<br><strong>Độ Rang</strong>: Medium<br><strong>Taste Note</strong>:&nbsp;Caramel. Chocolate. Deep After-taste<br><strong>Process</strong>: Honey<br><strong>Vùng Trồng</strong>:&nbsp;Thuận Hà, Đăk Song, Đăk Nông<br><strong>HSD</strong>: 1 năm kể từ ngày rang<br><strong>HDSD</strong>: Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp và đậy kín sau khi sử dụng.</div>",
+        "images": [
+          "images/products/product_des_start_1.webp",
+          "images/products/product7_des1.webp",
+          "images/products/product7_des2.webp",
+          "images/products/product7_des3.webp",
+          "images/products/product_des_end_1.webp"
+        ]
+      },
+      "promotion": 0,
+      "best": 0,
+      "brandValue": "wego",
+      "brandName": "Wego Coffee",
+      "categoryValue": "capsule",
+      "categoryName": "Viên nén cà phê"
+    },
+    {
+      "id": "8",
+      "name": "Viên nén cà phê - Brown - Robusta Honey",
+      "sale": 170000,
+      "price": 200000,
+      "images": [
+        "images/products/product8_img1.webp",
+        "images/products/product8_img2.webp",
+        "images/products/product8_img3.webp",
+        "images/products/product8_img4.webp",
+        "images/products/product8_img5.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": {
+        "content": "<div> Loại hạt Arabica được thu hoạch từ những cây cà phê có tuổi đời trên 50 năm và được phát triển tự do, không có sự dung dưỡng can thiệp từ bàn tay con người, sẽ cho ra những nốt vị của tự nhiên&nbsp;hoà quyện lẫn hương thơm&nbsp;chua chua ngọt ngọt đa dạng của nhiều loại quả mọng nhưng hậu ngọt như đường nâu quyến luyến.&nbsp;<br /><br /><span ><strong>Tỉ Lệ</strong>: 100% Arabica Heirloom<br /><strong >Process:</strong > Honey&nbsp;</span ><br /><span ><strong>Taste Note</strong>: Brown Sugar, Citrus, Medium Body, Sweet After-taste<br /><strong>Vùng Trồng</strong>:&nbsp;Lạc Dương, Lâm Đồng<br /><strong >HSD</strong >: 1 năm kể từ&nbsp;từ ngày rang<br /><strong>HDSD</strong>: Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp và đậy kín sau khi sử dụng.&nbsp;</span > </div>",
+        "images": [
+          "images/products/product_des_start_1.webp",
+          "images/products/product8_des1.webp",
+          "images/products/product8_des2.webp",
+          "images/products/product8_des3.webp",
+          "images/products/product_des_end_1.webp"
+        ]
+      },
+      "promotion": 0,
+      "best": 0,
+      "brandValue": "wego",
+      "brandName": "Wego Coffee",
+      "categoryValue": "capsule",
+      "categoryName": "Viên nén cà phê"
+    },
+    {
+      "id": "9",
+      "name": "Bình Thủy Tinh Chemex",
+      "sale": 517590,
+      "price": 575100,
+      "images": [
+        "images/products/product9_img1.webp",
+        "images/products/product9_img2.webp",
+        "images/products/product9_img3.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": ["3 cup"],
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "10",
+      "name": "Bộ Pha Cà Phê Nhỏ Giọt Cold Drip",
+      "sale": 558090,
+      "price": 575100,
+      "images": [
+        "images/products/product10_img1.webp",
+        "images/products/product10_img2.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": ["Trắng", "Xám", "Đỏ"],
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "11",
+      "name": "Giá Inox Đỡ Giấy Lọc Cà Phê",
+      "sale": 234090,
+      "price": 260100,
+      "images": [
+        "images/products/product11_img1.webp",
+        "images/products/product11_img2.webp",
+        "images/products/product11_img3.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "12",
+      "name": "Giấy Lọc Chemex",
+      "sale": 396090,
+      "price": 440100,
+      "images": [
+        "images/products/product12_img1.webp",
+        "images/products/product12_img2.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "13",
+      "name": "Hủ Bình Inox 2 Lớp Đựng Cà Phê Van 1 Chiều",
+      "sale": 274590,
+      "price": 305100,
+      "images": [
+        "images/products/product13_img1.webp",
+        "images/products/product13_img2.webp",
+        "images/products/product13_img3.webp",
+        "images/products/product13_img4.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "14",
+      "name": "Phễu cà phê V60 thủy tinh rãnh thẳng đế nhựa đen Cafede Kona 1 - 2 Cup",
+      "sale": 251100,
+      "price": 334800,
+      "images": [
+        "images/products/product14_img1.webp",
+        "images/products/product14_img2.webp",
+        "images/products/product14_img3.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "15",
+      "name": "Phễu Pour over V60 01 sứ Hasami Nhật Bản Cafede Kona",
+      "sale": 489000,
+      "price": 815000,
+      "images": [
+        "images/products/product15_img1.webp",
+        "images/products/product15_img2.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "16",
+      "name": "Phễu Tiamo Kalita Wave Màu Đồng",
+      "sale": 315090,
+      "price": 350100,
+      "images": [
+        "images/products/product16_img1.webp",
+        "images/products/product16_img2.webp",
+        "images/products/product16_img3.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "17",
+      "name": "Phễu V60 Tiamo 01",
+      "sale": 258390,
+      "price": 287100,
+      "images": ["images/products/product17_img1.webp"],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    },
+    {
+      "id": "18",
+      "name": "Phin Cà Phê Inox 304",
+      "sale": 234090,
+      "price": 260100,
+      "images": [
+        "images/products/product18_img1.webp",
+        "images/products/product18_img2.webp"
+      ],
+      "grindLevel": null,
+      "weight": null,
+      "color": null,
+      "size": null,
+      "quantity": 999,
+      "description": null,
+      "promotion": 1,
+      "best": 0,
+      "brandValue": "cafede",
+      "brandName": "Cafede Kona",
+      "categoryValue": "tool",
+      "categoryName": "Công cụ pha chế"
+    }
+  ],
+  "categoriesPost": [
+    {
+      "id": "1",
+      "name": "Về cà phê",
+      "value": "coffee"
+    },
+    {
+      "id": "2",
+      "name": "Về ưu đãi",
+      "value": "promotion"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "CÁC PHƯƠNG PHÁP PHA CÀ PHÊ PHỔ BIẾN",
+      "author": "LangDeepTry",
+      "date": "2004-06-01",
+      "image": "images/posts/post1.webp",
+      "desc": "Hương vị một ly cà phê ngon không chỉ nằm ở chất lượng hạt mà còn quyết định bởi tay nghề của người pha chế qua những cách pha cà phê. Đối với từng loại hạt cà phê đều có một cách pha mà chỉ có thể giành riêng cho loại hạt đó mới có thể mang lại độ thơm nhất định cho ly cà phê của bạn. Một số người cho rằng cà phê nào mà chẳng giống nhau, nhưng với những người sành sỏi và hiểu biết về cà phê thì cách pha rất quan trọng,đó là điều quyết định một ly cà phê chất lượng hay không Hãy cùng tìm hiểu qua những cách pha cà phê phổ biến hiện nay cùng Wego nhé.",
+      "content": [
+        [
+          "CÁCH PHA NHỎ GIỌT",
+          "1. Cà phê phin",
+          " Cà phê pha phin và Pour Over là hai phương pháp truyền thống và hiện đại của Việt Nam và Đức để pha cà phê. Cả hai đều đòi hỏi kỹ thuật và sự chú ý đến chi tiết. Cà phê pha phin sử dụng hạt Robusta, tạo ra hương vị đậm đà và đắng. Pour Over, dùng để pha cà phê chất lượng cao, thường sử dụng các loại hạt Specialty.",
+          "images/postdetail/1_1.jpeg"
+        ],
+        [
+          "",
+          "2. Pour Over",
+          "Là phương pháp pha cà phê được xuất sứ từ Đức. Cách pha tương đối cầu kì, yêu cầu người pha chế phải có kỹ thuật bài bản, đồng thời đòi hỏi nhiệt độ nước nóng chuẩn xác. Tương tự như cà phê phin. Phương pháp Pour Over là cách rót nước nóng trực tiếp lên bề mặt bột cà phê nhưng kĩ thuật rót phải thật chậm rãi và đều tay để canh thời gian chính xác để cà phê chiết xuất ra bình chứa bên dưới đủ vị và cân bằng. Để cho ra ly cà phê chất lượng từ Pour Over, thường người ta sẽ sử dụng các loại hạt Specialty để pha chế.",
+          "images/postdetail/1_2.jpeg"
+        ],
+        [
+          "CÁCH PHA KIỂU NGÂM",
+          "3. Cold Brew",
+          "Là phương pháp pha chế được ra đời tại Hà Lan, khác với các loại cà phê thông thường thì Cold Brew chủ yếu được pha bằng nước lạnh và được ủ kéo dài từ 4-24 tiếng ( tùy theo lượng bột cà phê ). Cold Brew mang hương thơm dịu nhẹ, mùi vị thoang thoảng như mùi trái cây vì được làm bằng hạt Arabica, ít chua và ít đắng hơn so với Espresso.",
+          "images/postdetail/1_3.jpeg"
+        ],
+        [
+          "CÁCH PHA BẰNG ÁP SUẤT",
+          "4. Espresso",
+          "Sau cà phê pha phin thì chắc hẳn Espresso là cách pha phổ biến thứ hai tại Việt Nam. Đây là một phương pháp có nguồn gốc từ nước Ý. Cà phê sau khi được xay bằng máy xay chuyên dụng, sẽ được cho vào tay cầm ( đươc gọi là Handle) sau đó sẽ được nén với một lực vừa phải. Quá trình cho hơi nước nóng ép bột cà phê với áp suất từ 9 – 10 atmosphere. Dung dịch cà phê sẽ được chiết xuất sau khoảng gần 30 giây. Khi chiết xuất Espresso, axit tự nhiên của hạt cà phê sẽ được cân bằng với hương thơm cùng vị ngọt đắng, nên vị của một ly Espresso thường rất đậm đặc Một tách cà phê Espresso nổi bật với 2 lớp: Lớp bọt khí màu vàng óng ở trên bề mặt và lớp dung dịch cà phê màu đen ở dưới.",
+          "images/postdetail/1_4.jpeg"
+        ]
+      ],
+      "categoryPost": "coffee"
+    },
+    {
+      "id": "2",
+      "title": "CÁC PHƯƠNG PHÁP SƠ CHẾ CÀ PHÊ HẠT PHỔ BIẾN",
+      "author": "Lang Đẹp Trai",
+      "date": "2222-12-22",
+      "image": "images/posts/post2.webp",
+      "desc": "Cà phê hạt là loại cà phê nguyên chất, chưa qua xử lý, giữ nguyên hương vị tinh tế và độ nguyên chất của hạt cà phê. Để có thể thưởng thức hương vị tuyệt vời từ hạt cà phê, bạn cần phải sơ chế hạt cà phê trước khi pha chế. Dưới đây là một số phương pháp sơ chế cà phê hạt phổ biến mà bạn có thể tham khảo.",
+      "content": [
+        [
+          "I. PHƯƠNG PHÁP CHẾ BIẾN TỰ NHIÊN/ KHÔ (NATURAL)",
+          "",
+          "Phương pháp chế biến tự nhiên hay còn gọi là chế biến khô, được áp dụng lần đầu tiên tại Ethiopia và cũng là phương pháp chế biến cà phê lâu đời nhất. <br/> Với phương pháp này, trái cà phê sau khi thu hoạch sẽ được phơi khô dưới ánh nắng mặt trời cho đến khi độ ẩm của cà phê giảm xuống còn 10-12%, quá trình này thường mất khoảng 30 ngày (tuỳ vào điều kiện thời tiết cho phép). Người nông dân có thể phơi cà phê trên các mặt phẳng lớn (sân, bàn...) hoặc phơi trên các luống cao, giàn... tuỳ theo kĩ thuật và sự đầu tư. <br/> Mặc dù công đoạn có vẻ như đơn giản, nhưng để chế biến khô một mẻ cà phê đạt chất lượng, người nông dân phải có kinh nghiệm trong việc 'đoán ý trời' để canh đúng nắng, độ ẩm và nhiệt độ của môi trường để tránh cà phê bị hư hỏng và 'lên men' quá mức.",
+          "images/postdetail/2_1.jpeg"
+        ],
+        [
+          "II. PHƯƠNG PHÁP CHẾ BIẾN ƯỚT (WET/ WASHED PROCESSED)",
+          "",
+          "Quy trình chế biến ướt hay còn gọi là lên men ướt, là một quá trình chế biến phức tạp nhiều công đoạn, đòi hỏi sử dụng các thiết bị chuyên dụng và lượng nước dồi dào. Nếu các bước trong quy trình được thực hiện một cách chuẩn chỉnh thì chất lượng cà phê sẽ được phát triển tốt hơn, đồng nhất hơn và ít khuyết tật hơn. <br/> Chế biến ướt ở mỗi quốc gia sẽ có nhiều biến thể khác nhau, nhưng nhìn chung, quá trình chế biến ướt luôn trải qua 4 công đoạn chính <br/> * Phân loại: <br/> Cà phê trái sau khi hái được đem về cơ sở chế biến và cho ngay vào bể đầy nước để phân loại, quả nào nặng sẽ chìm xuống bể (đem đi chế biến ướt), quả nào đã chín khô, hư hỏng sẽ nhẹ, nổi lên trên. Ngoài ra, cành, lá, tạp chất,… cũng được loại ra khỏi cà phê. <br/> * Xát bỏ vỏ quả: <br/> Quá trình xát vỏ (pulping) được thực hiện bằng máy, khi đó phần vỏ (và một phần chất nhầy) bị tách qua một bên, hạt cà phê vẫn được bao bọc trong một lớp chấy nhầy ở phía bên khác. Hạt cà phê cần được tách ra khỏi vỏ của chính nó (các quả bị xát vỏ không hoàn toàn, cũng như một phần vỏ đi kèm) bằng sàn, hoặc rây, trước khi tiếp tục được đưa sang các kênh dẫn nước. Theo đường dẫn, các tạp chất còn lại được sẽ nổi lên mặt nước và được loại bỏ tối đa. <br/> Điều quan trọng là giai đoạn xát vỏ cần được thực hiện nhanh chóng và liên tục để tránh tiến trình lên men ngoài ý muốn và phát sinh nhiều vị lạ trong cà phê. <br/> * Lên men loại bỏ chất nhầy: <br/> Sau khi loại bỏ vỏ quả và các tạp chất khác, cà phê được cho vào bể bể nước để thực hiện quá trình lên men. Lượng nước được sử dụng trong chế biến có thể khác nhau, nhưng thường nằm trong tỷ lệ 1:1. Đây là khâu rất quan trọng trong quá trình chế biến ướt vì sẽ ảnh hưởng nhiều đến chất vị của cà phê sau này. <br/> * Phơi hoặc sấy khô thành phẩm: <br/> Sau đó, cà phê được rửa lại bằng nước sạch, làm khô với cách phổ biến nhất là phơi nắng ngoài trời, trên giàn phơi để hạ độ ẩm trong hạt xuống 10% – 12%.",
+          "images/postdetail/2_2.jpeg"
+        ],
+        [
+          "III. PHƯƠNG PHÁP CHẾ BIẾN MẬT ONG (SEMI-DRY PROCESS, SEMI-WASHED PROCESS, HONEY PROCESSED)",
+          "",
+          "Phương pháp chế biến mật ong hay còn gọi là chế biến bán ướt, là sự kết hợp giữa hai phương pháp chế biến khô và chế biến ướt, có nguồn gốc từ Costa Rica. <br/> Từ 'honey' được dùng để chỉ phương pháp chế biến này đã gây ra nhiều hiểu lầm. Thực chất, trong chế biến mật ong hoàn toàn không có thành phần mật ong nào được sử dụng trong bất kì công đoạn nào của phương pháp. <br/> Với phương pháp sơ chế bán ướt,  cà phê sau khi thu hoạch được loại bỏ lớp vỏ và một phần thịt phía trong (tương tự với chế biến ướt, chỉ khác ở phần trăm loại bỏ lớp vỏ), hạt cà phê được sấy trên giàn phơi hoặc sân trong thời gian nhất định. Lớp thịt quả còn lại bao quanh hạt nhân đẩy nhanh quá trình lên men so với phương pháp sơ chế tự nhiên, cộng với sự giàu axit và đường của chất nhầy mà hạt cà có độ ngọt tổng thể hài hoà, vượt trội so với phương pháp khác. <br/> Cà phê sơ chế bằng phương pháp bán ướt chứa đựng hương vị trung tính dễ chịu, pha một chút ngọt ngào, một chút chua dịu, phức tạp nhưng cũng rất tinh tế.",
+          "images/postdetail/2_3.jpeg"
+        ]
+      ],
+      "categoryPost": "coffee"
+    },
+    {
+      "id": "3",
+      "title": "Cà phê hạt Arabica - Hương vị tinh tế từ thiên nhiên",
+      "author": "Wego Coffee",
+      "date": "2021-10-10",
+      "image": "images/postdetail/2_1.jpeg",
+      "desc": "Arabica là một trong những loại cà phê được ưa chuộng nhất trên thế giới với hương vị tinh tế, độ đắng nhẹ nhàng và hậu vị dài lâu. Hãy cùng Wego Coffee khám phá hương vị tuyệt vời từ thiên nhiên của hạt cà phê Arabica.",
+      "content": "<p>Arabica là một trong những loại cà phê được ưa chuộng nhất trên thế giới với hương vị tinh tế, độ đắng nhẹ nhàng và hậu vị dài lâu. Hãy cùng Wego Coffee khám phá hương vị tuyệt vời từ thiên nhiên của hạt cà phê Arabica.</p><p>Arabica là một trong những loại cà phê được ưa chuộng nhất trên thế giới với hương vị tinh tế, độ đắng nhẹ nhàng và hậu vị dài lâu. Hãy cùng Wego Coffee khám phá hương vị tuyệt vời từ thiên nhiên của hạt cà phê Arabica.</p>",
+      "categoryPost": "coffee"
+    },
+    {
+      "id": "4",
+      "title": "Ưu đãi mua hàng tháng 10 - Giảm giá 10% cho tất cả sản phẩm",
+      "author": "Wego Coffee",
+      "date": "2021-10-10",
+      "image": "images/postdetail/1_1.jpeg",
+      "desc": "Tháng 10 này, Wego Coffee dành tặng bạn ưu đãi giảm giá 10% cho tất cả sản phẩm. Hãy nhanh tay mua sắm ngay hôm nay để nhận ưu đãi hấp dẫn từ chúng tôi.",
+      "content": "<p>Tháng 10 này, Wego Coffee dành tặng bạn ưu đãi giảm giá 10% cho tất cả sản phẩm. Hãy nhanh tay mua sắm ngay hôm nay để nhận ưu đãi hấp dẫn từ chúng tôi.</p><p>Tháng 10 này, Wego Coffee dành tặng bạn ưu đãi giảm giá 10% cho tất cả sản phẩm. Hãy nhanh tay mua sắm ngay hôm nay để nhận ưu đãi hấp dẫn từ chúng tôi.</p>",
+      "categoryPost": "promotion"
+    }
+  ],
+  "cartData": [
+    {
+      "id": "4ef2",
+      "quantity": 4,
+      "idProduct": "17",
+      "image": "images/products/product17_img1.webp",
+      "name": "Phễu V60 Tiamo 01",
+      "sale": 258390,
+      "price": 287100,
+      "grindLevel": "",
+      "weight": "",
+      "color": "",
+      "size": ""
+    },
+    {
+      "id": "049e",
+      "quantity": 2,
+      "idProduct": "16",
+      "image": "images/products/product16_img1.webp",
+      "name": "Phễu Tiamo Kalita Wave Màu Đồng",
+      "sale": 315090,
+      "price": 350100,
+      "grindLevel": "",
+      "weight": "",
+      "color": "",
+      "size": ""
+    },
+    {
+      "id": "f062",
+      "quantity": 1,
+      "idProduct": "15",
+      "image": "images/products/product15_img1.webp",
+      "name": "Phễu Pour over V60 01 sứ Hasami Nhật Bản Cafede Kona",
+      "sale": 489000,
+      "price": 815000,
+      "grindLevel": "",
+      "weight": "",
+      "color": "",
+      "size": ""
+    },
+    {
+      "id": "ce6a",
+      "quantity": 1,
+      "idProduct": "4",
+      "image": "images/products/product4_img1.webp",
+      "name": "Hạt cà phê - RED - Single Origin",
+      "sale": 280000,
+      "price": 350000,
+      "grindLevel": "Pour Over",
+      "weight": "250g",
+      "color": "",
+      "size": ""
+    }
+  ],
+  "userAccount": [
+    {
+      "id": "1",
+      "firstname": "Lang",
+      "lastname": "Phạm",
+      "gender": "male",
+      "birthday": "2004-06-01",
+      "email": "langpn.dev@gmail.com",
+      "phone": "0877133221",
+      "password": "526488"
+    },
+    {
+      "id": "b02a",
+      "lastname": "Phạm",
+      "firstname": "Lang",
+      "gender": "male",
+      "birthday": "2024-04-12T17:00:00.000Z",
+      "email": "lang.laptrinh.1307@gmail.com",
+      "phone": "0877133224",
+      "password": "Lang123@"
+    }
+  ],
+  "feedbacksCustomer": [
+    {
+      "id": "14f0",
+      "name": "Lang đẳng cấp",
+      "email": "mail@mail.com",
+      "message": "lang đẹp trai quá"
+    },
+    {
+      "id": "70dc",
+      "name": "Lang đẳng cấp",
+      "email": "mail@mail.com",
+      "message": "Lang đẹp trai vờ lờ"
+    },
+    {
+      "id": "b104",
+      "name": "Lang Đẹp Trai Siêu Cấp",
+      "email": "lang.laptrinh.1307@gmail.com",
+      "message": "lang đẹp trai quá aaaa"
+    }
+  ],
+  "contactsCustommer": []
+}
